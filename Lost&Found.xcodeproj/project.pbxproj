@@ -13,6 +13,12 @@
 		4D0F4C112A14EC9000516495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0F2A14EC9000516495 /* Main.storyboard */; };
 		4D0F4C132A14EC9100516495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C122A14EC9100516495 /* Assets.xcassets */; };
 		4D0F4C162A14EC9100516495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C142A14EC9100516495 /* LaunchScreen.storyboard */; };
+		4D0F4C232A14F0E100516495 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C212A14F0E100516495 /* SlideCell.swift */; };
+		4D0F4C242A14F0E100516495 /* SlideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C222A14F0E100516495 /* SlideCell.xib */; };
+		4D0F4C282A14F12300516495 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C272A14F12300516495 /* LoginViewController.swift */; };
+		4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2A2A14F13D00516495 /* SignupViewController.swift */; };
+		4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */; };
+		4D0F4C302A14F6D600516495 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2F2A14F6D500516495 /* IntroModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		4D0F4C122A14EC9100516495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0F4C152A14EC9100516495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0F4C172A14EC9100516495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D0F4C212A14F0E100516495 /* SlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
+		4D0F4C222A14F0E100516495 /* SlideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCell.xib; sourceTree = "<group>"; };
+		4D0F4C272A14F12300516495 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4D0F4C2A2A14F13D00516495 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4D0F4C2F2A14F6D500516495 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +84,10 @@
 		4D0F4C1D2A14EC9E00516495 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */,
+				4D0F4C2C2A14F14200516495 /* ForgotPasswordScreen */,
+				4D0F4C292A14F12900516495 /* SigupScreen */,
+				4D0F4C262A14F10500516495 /* LoginScreen */,
+				4D0F4C202A14EDB300516495 /* IntroScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -87,8 +102,51 @@
 		4D0F4C1F2A14ECA400516495 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F4C2F2A14F6D500516495 /* IntroModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4D0F4C202A14EDB300516495 /* IntroScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */,
+				4D0F4C252A14F0EC00516495 /* Cell */,
+			);
+			path = IntroScreen;
+			sourceTree = "<group>";
+		};
+		4D0F4C252A14F0EC00516495 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C212A14F0E100516495 /* SlideCell.swift */,
+				4D0F4C222A14F0E100516495 /* SlideCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4D0F4C262A14F10500516495 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C272A14F12300516495 /* LoginViewController.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		4D0F4C292A14F12900516495 /* SigupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C2A2A14F13D00516495 /* SignupViewController.swift */,
+			);
+			path = SigupScreen;
+			sourceTree = "<group>";
+		};
+		4D0F4C2C2A14F14200516495 /* ForgotPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */,
+			);
+			path = ForgotPasswordScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +210,7 @@
 				4D0F4C162A14EC9100516495 /* LaunchScreen.storyboard in Resources */,
 				4D0F4C132A14EC9100516495 /* Assets.xcassets in Resources */,
 				4D0F4C112A14EC9000516495 /* Main.storyboard in Resources */,
+				4D0F4C242A14F0E100516495 /* SlideCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,9 +221,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0F4C302A14F6D600516495 /* IntroModel.swift in Sources */,
+				4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */,
+				4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */,
 				4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */,
 				4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */,
 				4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */,
+				4D0F4C282A14F12300516495 /* LoginViewController.swift in Sources */,
+				4D0F4C232A14F0E100516495 /* SlideCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
