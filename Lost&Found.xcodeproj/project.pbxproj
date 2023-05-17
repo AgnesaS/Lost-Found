@@ -19,6 +19,11 @@
 		4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2A2A14F13D00516495 /* SignupViewController.swift */; };
 		4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */; };
 		4D0F4C302A14F6D600516495 /* IntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C2F2A14F6D500516495 /* IntroModel.swift */; };
+		4D0F4C332A15241300516495 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C322A15241300516495 /* UIView+Extension.swift */; };
+		4D0F4C352A153C7B00516495 /* UIViewControllers+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C342A153C7B00516495 /* UIViewControllers+Alerts.swift */; };
+		4D0F4C382A153DBB00516495 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C372A153DBB00516495 /* HomeViewController.swift */; };
+		4D0F4C3A2A1541B900516495 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C392A1541B900516495 /* UserDefaults+Extension.swift */; };
+		4D0F4C3C2A15431A00516495 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		4D0F4C2A2A14F13D00516495 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4D0F4C2F2A14F6D500516495 /* IntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroModel.swift; sourceTree = "<group>"; };
+		4D0F4C322A15241300516495 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4D0F4C342A153C7B00516495 /* UIViewControllers+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Alerts.swift"; sourceTree = "<group>"; };
+		4D0F4C372A153DBB00516495 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4D0F4C392A1541B900516495 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 		4D0F4C082A14EC9000516495 /* Lost&Found */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F4C312A1523C600516495 /* Extension */,
 				4D0F4C1F2A14ECA400516495 /* Model */,
 				4D0F4C1E2A14ECA100516495 /* ViewModel */,
 				4D0F4C1D2A14EC9E00516495 /* View */,
@@ -84,6 +95,7 @@
 		4D0F4C1D2A14EC9E00516495 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F4C362A153DA500516495 /* HomeScreen */,
 				4D0F4C2C2A14F14200516495 /* ForgotPasswordScreen */,
 				4D0F4C292A14F12900516495 /* SigupScreen */,
 				4D0F4C262A14F10500516495 /* LoginScreen */,
@@ -147,6 +159,25 @@
 				4D0F4C2D2A14F15E00516495 /* ForgotPasswordViewController.swift */,
 			);
 			path = ForgotPasswordScreen;
+			sourceTree = "<group>";
+		};
+		4D0F4C312A1523C600516495 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C322A15241300516495 /* UIView+Extension.swift */,
+				4D0F4C342A153C7B00516495 /* UIViewControllers+Alerts.swift */,
+				4D0F4C392A1541B900516495 /* UserDefaults+Extension.swift */,
+				4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4D0F4C362A153DA500516495 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C372A153DBB00516495 /* HomeViewController.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +253,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D0F4C302A14F6D600516495 /* IntroModel.swift in Sources */,
+				4D0F4C3C2A15431A00516495 /* UIViewController+Extension.swift in Sources */,
 				4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */,
 				4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */,
+				4D0F4C352A153C7B00516495 /* UIViewControllers+Alerts.swift in Sources */,
+				4D0F4C332A15241300516495 /* UIView+Extension.swift in Sources */,
 				4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */,
 				4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */,
+				4D0F4C382A153DBB00516495 /* HomeViewController.swift in Sources */,
 				4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */,
 				4D0F4C282A14F12300516495 /* LoginViewController.swift in Sources */,
+				4D0F4C3A2A1541B900516495 /* UserDefaults+Extension.swift in Sources */,
 				4D0F4C232A14F0E100516495 /* SlideCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
