@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46D6AACB3A70F7828C4C3DC0 /* Pods_Lost_Found.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0235B3FEE47E38C288F08FE9 /* Pods_Lost_Found.framework */; };
 		4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C092A14EC9000516495 /* AppDelegate.swift */; };
 		4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */; };
 		4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */; };
@@ -24,9 +25,11 @@
 		4D0F4C382A153DBB00516495 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C372A153DBB00516495 /* HomeViewController.swift */; };
 		4D0F4C3A2A1541B900516495 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C392A1541B900516495 /* UserDefaults+Extension.swift */; };
 		4D0F4C3C2A15431A00516495 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */; };
+		4D0F4C3E2A154A1900516495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0235B3FEE47E38C288F08FE9 /* Pods_Lost_Found.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lost_Found.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F4C062A14EC9000516495 /* Lost&Found.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lost&Found.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F4C092A14EC9000516495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		4D0F4C372A153DBB00516495 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D0F4C392A1541B900516495 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A60CD1E6D5713D718DABFBC9 /* Pods-Lost&Found.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.debug.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.debug.xcconfig"; sourceTree = "<group>"; };
+		F352C7B2CC3419E02F6CE938 /* Pods-Lost&Found.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.release.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D6AACB3A70F7828C4C3DC0 /* Pods_Lost_Found.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +71,8 @@
 			children = (
 				4D0F4C082A14EC9000516495 /* Lost&Found */,
 				4D0F4C072A14EC9000516495 /* Products */,
+				C2442DA022D8F24E9001E182 /* Pods */,
+				952CA6BAEEB392651769A5CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +97,7 @@
 				4D0F4C122A14EC9100516495 /* Assets.xcassets */,
 				4D0F4C142A14EC9100516495 /* LaunchScreen.storyboard */,
 				4D0F4C172A14EC9100516495 /* Info.plist */,
+				4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */,
 			);
 			path = "Lost&Found";
 			sourceTree = "<group>";
@@ -180,6 +190,24 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		952CA6BAEEB392651769A5CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0235B3FEE47E38C288F08FE9 /* Pods_Lost_Found.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2442DA022D8F24E9001E182 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A60CD1E6D5713D718DABFBC9 /* Pods-Lost&Found.debug.xcconfig */,
+				F352C7B2CC3419E02F6CE938 /* Pods-Lost&Found.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D0F4C1A2A14EC9100516495 /* Build configuration list for PBXNativeTarget "Lost&Found" */;
 			buildPhases = (
+				CCACE3FE814BCFED1D44FACC /* [CP] Check Pods Manifest.lock */,
 				4D0F4C022A14EC9000516495 /* Sources */,
 				4D0F4C032A14EC9000516495 /* Frameworks */,
 				4D0F4C042A14EC9000516495 /* Resources */,
+				170EFDDBCC64D5AF8C83AC60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,12 +270,55 @@
 			files = (
 				4D0F4C162A14EC9100516495 /* LaunchScreen.storyboard in Resources */,
 				4D0F4C132A14EC9100516495 /* Assets.xcassets in Resources */,
+				4D0F4C3E2A154A1900516495 /* GoogleService-Info.plist in Resources */,
 				4D0F4C112A14EC9000516495 /* Main.storyboard in Resources */,
 				4D0F4C242A14F0E100516495 /* SlideCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		170EFDDBCC64D5AF8C83AC60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lost&Found/Pods-Lost&Found-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lost&Found/Pods-Lost&Found-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lost&Found/Pods-Lost&Found-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCACE3FE814BCFED1D44FACC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lost&Found-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D0F4C022A14EC9000516495 /* Sources */ = {
@@ -406,6 +479,7 @@
 		};
 		4D0F4C1B2A14EC9100516495 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A60CD1E6D5713D718DABFBC9 /* Pods-Lost&Found.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -433,6 +507,7 @@
 		};
 		4D0F4C1C2A14EC9100516495 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F352C7B2CC3419E02F6CE938 /* Pods-Lost&Found.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

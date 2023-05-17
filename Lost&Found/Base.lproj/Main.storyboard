@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="189" y="-35"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="olw-Vv-hfd">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ENk-AQ-B7a" customClass="HomeViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,10 +105,11 @@
                         <viewLayoutGuide key="safeArea" id="hoM-ik-ah3"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="aMg-1C-T30"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47g-eX-cGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="693"/>
+            <point key="canvasLocation" x="914" y="692"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="aCJ-VK-UfI">
@@ -330,6 +331,7 @@
                             <constraint firstItem="6vU-7s-kJa" firstAttribute="leading" secondItem="M1P-IE-GFu" secondAttribute="leading" id="qK1-wJ-7od"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XQB-Fk-vrl"/>
                     <connections>
                         <outlet property="emailTextfield" destination="mr2-Wh-P4P" id="drf-Gb-kR2"/>
                         <outlet property="passwordTextField" destination="w2v-hZ-qHB" id="ce1-nM-afg"/>
@@ -1011,8 +1013,28 @@
             </objects>
             <point key="canvasLocation" x="2323" y="-35"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WVR-2A-w68">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="k8q-n7-IfT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mhb-q7-1k6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ENk-AQ-B7a" kind="relationship" relationship="viewControllers" id="v7c-Yr-qlU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6uA-ZC-Tp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154.96183206106869" y="692.95774647887322"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="loginBackground" width="414" height="896"/>
         <image name="signupBackground" width="414" height="896"/>
         <systemColor name="systemBackgroundColor">

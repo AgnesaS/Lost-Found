@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextfield: UITextField!
@@ -36,18 +37,36 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        validateFields()
-        if isValidEmail(emailTextfield.text ?? ""){
-            print("tapped")
-            let controller = storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
-            present(controller, animated: true, completion: nil)
+        if let email = emailTextfield.text, let password = passwordTextField.text{
+
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                if let e = error {
+                    self?.validateFields()
+                    self?.showAlertWith(title: "Lost & Found", message: "Please enter valid datas".localizableString())
+                } else {
+                    let controller = self?.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                              controller.modalPresentationStyle = .fullScreen
+                              controller.modalTransitionStyle = .flipHorizontal
+                    self?.present(controller, animated: true, completion: nil)
+                }
+            }
+            
         }
-        else{
-            self.showAlertWith(title: "Lost & Found", message: "Please enter a valid email address".localizableString())
-        }
+        
     }
+        
+//        validateFields()
+//        if isValidEmail(emailTextfield.text ?? ""){
+//            print("tapped")
+//            let controller = storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+//            controller.modalPresentationStyle = .fullScreen
+//            controller.modalTransitionStyle = .flipHorizontal
+//            present(controller, animated: true, completion: nil)
+//        }
+//        else{
+//            self.showAlertWith(title: "Lost & Found", message: "Please enter a valid email address".localizableString())
+//        }
+
     @IBAction func signupButtonTapped(_ sender: Any) {
             print("tapped")
             let controller = storyboard?.instantiateViewController(identifier: "SignupViewController") as! SignupViewController

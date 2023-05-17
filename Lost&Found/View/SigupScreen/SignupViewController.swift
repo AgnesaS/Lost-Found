@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController: UIViewController {
     @IBOutlet weak var firstNameTextfield: UITextField!
@@ -13,6 +14,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +56,29 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: Any) {
-        validateFields()
-        if isValidEmail(emailTextField.text ?? ""){
-            let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
-            present(controller, animated: true, completion: nil)
-        } else{
-            self.showAlertWith(title: "Lost & Found", message: "Please enter a valid email address".localizableString())
+        if let email = emailTextField.text, let password = passwordTextfield.text{
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error{
+                    self.validateFields()
+                    self.showAlertWith(title: "Lost & Found", message: "Please enter a valid datas".localizableString())
+                } else {
+                    let controller = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+                      controller.modalPresentationStyle = .fullScreen
+                      controller.modalTransitionStyle = .flipHorizontal
+                    self.present(controller, animated: true, completion: nil)
+                }
+            }
+            
         }
+//        validateFields()
+//        if isValidEmail(emailTextField.text ?? ""){
+//            let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+//            controller.modalPresentationStyle = .fullScreen
+//            controller.modalTransitionStyle = .flipHorizontal
+//            present(controller, animated: true, completion: nil)
+//        } else{
+//            self.showAlertWith(title: "Lost & Found", message: "Please enter a valid email address".localizableString())
+//        }
     }
     @IBAction func loginButtonTapped(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
