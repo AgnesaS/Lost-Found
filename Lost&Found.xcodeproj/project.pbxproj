@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C092A14EC9000516495 /* AppDelegate.swift */; };
 		4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */; };
-		4D0F4C0E2A14EC9000516495 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0D2A14EC9000516495 /* ViewController.swift */; };
+		4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */; };
 		4D0F4C112A14EC9000516495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C0F2A14EC9000516495 /* Main.storyboard */; };
 		4D0F4C132A14EC9100516495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C122A14EC9100516495 /* Assets.xcassets */; };
 		4D0F4C162A14EC9100516495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C142A14EC9100516495 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		4D0F4C062A14EC9000516495 /* Lost&Found.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lost&Found.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F4C092A14EC9000516495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D0F4C0D2A14EC9000516495 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		4D0F4C102A14EC9000516495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D0F4C122A14EC9100516495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0F4C152A14EC9100516495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +56,39 @@
 		4D0F4C082A14EC9000516495 /* Lost&Found */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F4C1F2A14ECA400516495 /* Model */,
+				4D0F4C1E2A14ECA100516495 /* ViewModel */,
+				4D0F4C1D2A14EC9E00516495 /* View */,
 				4D0F4C092A14EC9000516495 /* AppDelegate.swift */,
 				4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */,
-				4D0F4C0D2A14EC9000516495 /* ViewController.swift */,
 				4D0F4C0F2A14EC9000516495 /* Main.storyboard */,
 				4D0F4C122A14EC9100516495 /* Assets.xcassets */,
 				4D0F4C142A14EC9100516495 /* LaunchScreen.storyboard */,
 				4D0F4C172A14EC9100516495 /* Info.plist */,
 			);
 			path = "Lost&Found";
+			sourceTree = "<group>";
+		};
+		4D0F4C1D2A14EC9E00516495 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D0F4C0D2A14EC9000516495 /* IntroViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D0F4C1E2A14ECA100516495 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D0F4C1F2A14ECA400516495 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D0F4C0E2A14EC9000516495 /* ViewController.swift in Sources */,
+				4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */,
 				4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */,
 				4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */,
 			);
