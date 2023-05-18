@@ -95,6 +95,21 @@
             </objects>
             <point key="canvasLocation" x="189" y="-35"/>
         </scene>
+        <!--Tab Baar View Controller-->
+        <scene sceneID="yw8-vn-2NZ">
+            <objects>
+                <viewController storyboardIdentifier="TabBaarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rir-8c-Jzs" customClass="TabBaarViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gaQ-jg-Ljr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GfB-bk-mdr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGY-l3-NT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189" y="673"/>
+        </scene>
         <!--Home-->
         <scene sceneID="olw-Vv-hfd">
             <objects>
@@ -114,7 +129,7 @@
         <!--Item-->
         <scene sceneID="aVQ-U8-OKP">
             <objects>
-                <viewController id="c5X-Vn-u7g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HISTORY_ID" id="c5X-Vn-u7g" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Kc-yY-KuD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +145,7 @@
         <!--View Controller-->
         <scene sceneID="mZL-sj-Yxm">
             <objects>
-                <viewController id="ek4-Bw-anN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ADD_ID" id="ek4-Bw-anN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f7R-DD-t5M">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +164,7 @@
         <!--Location-->
         <scene sceneID="WJp-Cu-rDW">
             <objects>
-                <viewController id="MrV-w9-EFk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOCATION_ID" id="MrV-w9-EFk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vuj-0n-bX8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -978,28 +993,6 @@
             </objects>
             <point key="canvasLocation" x="2323" y="-35"/>
         </scene>
-        <!--Tab Bar View Controller-->
-        <scene sceneID="bIn-I4-fSG">
-            <objects>
-                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6co-eR-omY" customClass="TabBarViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Vx-vo-rrd">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="ENk-AQ-B7a" kind="relationship" relationship="viewControllers" id="UcG-ZH-0Wl"/>
-                        <segue destination="c5X-Vn-u7g" kind="relationship" relationship="viewControllers" id="xer-Ef-SPO"/>
-                        <segue destination="ek4-Bw-anN" kind="relationship" relationship="viewControllers" id="dYR-Lp-HE8"/>
-                        <segue destination="MrV-w9-EFk" kind="relationship" relationship="viewControllers" id="HEK-U8-Ynv"/>
-                        <segue destination="8UA-La-G89" kind="relationship" relationship="viewControllers" id="oZ0-Mx-PlF"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8z8-Zm-a8q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="189" y="673"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="xAW-c4-0rm">
             <objects>
@@ -1012,10 +1005,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZX-dO-HGb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="804"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="791"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hQN-Hs-bJ6">
-                                                <rect key="frame" x="0.0" y="-47" width="414" height="944"/>
+                                                <rect key="frame" x="0.0" y="-60" width="414" height="944"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="944" id="NGU-pM-Bqu"/>
                                                 </constraints>
@@ -1284,7 +1277,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Ctm-EJ-onh" secondAttribute="trailing" constant="30" id="fKm-nY-uhE"/>
                                             <constraint firstItem="HUP-sb-fQr" firstAttribute="top" secondItem="Tx6-SG-ik6" secondAttribute="bottom" constant="20" id="i6U-7b-d0Q"/>
                                             <constraint firstAttribute="trailing" secondItem="jfd-Hz-6uE" secondAttribute="trailing" constant="30" id="jaF-tI-L0b"/>
-                                            <constraint firstItem="hQN-Hs-bJ6" firstAttribute="top" secondItem="pZX-dO-HGb" secondAttribute="top" constant="-47" id="n1m-5E-OvJ"/>
+                                            <constraint firstItem="hQN-Hs-bJ6" firstAttribute="top" secondItem="pZX-dO-HGb" secondAttribute="top" constant="-60" id="n1m-5E-OvJ"/>
                                             <constraint firstItem="hQN-Hs-bJ6" firstAttribute="leading" secondItem="pZX-dO-HGb" secondAttribute="leading" id="o3K-ly-ux3"/>
                                             <constraint firstItem="HUP-sb-fQr" firstAttribute="leading" secondItem="pZX-dO-HGb" secondAttribute="leading" constant="30" id="oaF-r8-B47"/>
                                             <constraint firstItem="LE8-nY-yey" firstAttribute="top" secondItem="jfd-Hz-6uE" secondAttribute="bottom" constant="20" id="pNk-0i-fOc"/>

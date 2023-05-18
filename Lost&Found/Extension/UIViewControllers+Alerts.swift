@@ -23,7 +23,7 @@ extension UIViewController {
                 controller.modalTransitionStyle = .flipHorizontal
                 self.present(controller, animated: true, completion: nil)
             } else if screen == "home" {
-                let controller = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
+                let controller = self.storyboard?.instantiateViewController(identifier: "TabBaarViewController") as! TabBaarViewController
                 controller.modalPresentationStyle = .fullScreen
                 controller.modalTransitionStyle = .flipHorizontal
                 self.present(controller, animated: true, completion: nil)
