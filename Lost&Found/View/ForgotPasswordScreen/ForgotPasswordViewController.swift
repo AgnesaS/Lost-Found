@@ -6,16 +6,15 @@
 //
 
 import UIKit
+import Firebase
 
 class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var oldPasswordTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     //MARK: Functions
@@ -25,20 +24,6 @@ class ForgotPasswordViewController: UIViewController {
             self.showAlertWith(title: "Discover the World", message: "Please enter your email".localizableString())
             return
         }
-        guard let oldPasswordd = oldPasswordTextField.text, !oldPasswordd.isEmpty else {
-            self.oldPasswordTextField.becomeFirstResponder()
-            self.showAlertWith(title: "Lost & Found", message: "Please enter your old password".localizableString())
-            return
-    }
-        guard let newPassword = newPasswordTextField.text, !newPassword.isEmpty else {
-            self.newPasswordTextField.becomeFirstResponder()
-            self.showAlertWith(title: "Lost & Found", message: "Please enter your new password".localizableString())
-            return
-    }
-        guard (oldPasswordd == newPassword) else {
-            self.showAlertWith(title: "Lost & Found", message: "Passwords doesn't match".localizableString())
-            return
-        }
     }
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -46,27 +31,21 @@ class ForgotPasswordViewController: UIViewController {
         return emailPred.evaluate(with: email)
     }
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
-        validateFields()
-        if isValidEmail(emailTextField.text ?? ""){
-            let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
-            present(controller, animated: true, completion: nil)
-        } else{
-            self.showAlertWith(title: "Lost & Found", message: "Please enter a valid email address".localizableString())
+        let auth = Auth.auth()
+        
+        auth.sendPasswordReset(withEmail: emailTextField.text!) { (error) in
+            if let error = error {
+                self.validateFields()
+                self.showAlertWith(title: "Error", message: "There is no user record corresponding to this identifier. Please check if your email is correct".localizableString())
+                
+            } else {
+                self.showOKAlertWith(title: "Lost & Found", message: "A password reset email has been send to this address!".localizableString(), screen: "login")
+                
+            }
+            
         }
         
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
