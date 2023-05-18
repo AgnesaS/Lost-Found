@@ -214,7 +214,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="PMp-L8-jaP"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
