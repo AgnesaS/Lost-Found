@@ -15,8 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-VJ-ewR">
-                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-VJ-ewR">
+                                <rect key="frame" x="46.666666666666657" y="277" width="300" height="298.66666666666674"/>
+                                <color key="tintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="DU5-Kc-3Tx"/>
                                     <constraint firstAttribute="width" constant="300" id="IMb-Xa-0yl"/>
@@ -24,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xzo-VJ-ewR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8mK-Ff-xJ5"/>
                             <constraint firstItem="xzo-VJ-ewR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b4B-kG-BHf"/>
@@ -37,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mainLogo" width="800" height="800"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="123"/>
     </resources>
 </document>

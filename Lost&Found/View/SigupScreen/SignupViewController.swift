@@ -59,6 +59,7 @@ class SignupViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextfield.text{
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error{
+                    print("Error\(e)")
                     self.validateFields()
                     self.showAlertWith(title: "Lost & Found", message: "Please enter a valid datas".localizableString())
                 } else {

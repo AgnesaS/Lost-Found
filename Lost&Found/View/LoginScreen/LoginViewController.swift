@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTextfield.text = "agi@gmail.com"
+        passwordTextField.text = "123456"
         // Do any additional setup after loading the view.
     }
     //MARK: Functions
@@ -41,10 +43,11 @@ class LoginViewController: UIViewController {
 
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 if let e = error {
+                    print("Error\(e)")
                     self?.validateFields()
                     self?.showAlertWith(title: "Lost & Found", message: "Please enter valid datas".localizableString())
                 } else {
-                    let controller = self?.storyboard?.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                    let controller = self?.storyboard?.instantiateViewController(identifier: "TabBarViewController") as! TabBarViewController
                               controller.modalPresentationStyle = .fullScreen
                               controller.modalTransitionStyle = .flipHorizontal
                     self?.present(controller, animated: true, completion: nil)
