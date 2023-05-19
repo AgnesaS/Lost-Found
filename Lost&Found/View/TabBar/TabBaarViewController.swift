@@ -23,7 +23,7 @@ class TabBaarViewController: SOTabBarController {
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
         let historyStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HISTORY_ID")
         let addStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADD_ID")
-        let locationStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LOCATION_ID")
+        let locationStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationViewController")
         let meStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController")
         
         homeStoryboard.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home2"), selectedImage: UIImage(named: "home_Selected"))

@@ -28,6 +28,7 @@
 		4D0F4C3E2A154A1900516495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */; };
 		4D0F4C412A1594C000516495 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C402A1594C000516495 /* SettingsViewController.swift */; };
 		4D34D4452A16DB1100BD3167 /* TabBaarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34D4442A16DB1100BD3167 /* TabBaarViewController.swift */; };
+		4D34D4482A16EA4900BD3167 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34D4472A16EA4900BD3167 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D0F4C402A1594C000516495 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4D34D4442A16DB1100BD3167 /* TabBaarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBaarViewController.swift; sourceTree = "<group>"; };
+		4D34D4472A16EA4900BD3167 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		A60CD1E6D5713D718DABFBC9 /* Pods-Lost&Found.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.debug.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.debug.xcconfig"; sourceTree = "<group>"; };
 		F352C7B2CC3419E02F6CE938 /* Pods-Lost&Found.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.release.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,9 +111,10 @@
 		4D0F4C1D2A14EC9E00516495 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D0F4C422A1596A600516495 /* TabBar */,
+				4D34D4462A16EA3500BD3167 /* Location */,
 				4D0F4C3F2A1594A900516495 /* SettingsScreen */,
 				4D0F4C362A153DA500516495 /* HomeScreen */,
+				4D0F4C422A1596A600516495 /* TabBar */,
 				4D0F4C2C2A14F14200516495 /* ForgotPasswordScreen */,
 				4D0F4C292A14F12900516495 /* SigupScreen */,
 				4D0F4C262A14F10500516495 /* LoginScreen */,
@@ -210,6 +213,14 @@
 				4D34D4442A16DB1100BD3167 /* TabBaarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		4D34D4462A16EA3500BD3167 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4D34D4472A16EA4900BD3167 /* LocationViewController.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		952CA6BAEEB392651769A5CA /* Frameworks */ = {
@@ -361,6 +372,7 @@
 				4D0F4C3A2A1541B900516495 /* UserDefaults+Extension.swift in Sources */,
 				4D34D4452A16DB1100BD3167 /* TabBaarViewController.swift in Sources */,
 				4D0F4C232A14F0E100516495 /* SlideCell.swift in Sources */,
+				4D34D4482A16EA4900BD3167 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
