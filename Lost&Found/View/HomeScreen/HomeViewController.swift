@@ -18,11 +18,11 @@ class HomeViewController: UIViewController {
     let screen = UIScreen.main.bounds
     var menu = false
     var home = CGAffineTransform()
-    var options: [option] = [option(image: UIImage(systemName: "house.fill")!,title: "Home", storyboard: "HomeViewController"),option(image: UIImage(systemName: "person.fill")!,title: "Settings", storyboard: "SettingsViewController")]
+    var options: [option] = [option(image: UIImage(systemName: "person.fill")!,title: "Profile", segue: "Profile"),option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),option(image: UIImage(systemName: "list.bullet")!,title: "List", segue: "List"),option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
     struct option {
         var image = UIImage()
         var title = String()
-        var storyboard = String()
+        var segue = String()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! tableViewCell
         cell.descriptionLabel.text = options[indexPath.row].title
-        cell.descriptionLabel.textColor = .black
+        cell.descriptionLabel.textColor = .white
         cell.iconImageView.image = options[indexPath.row].image
 
         return cell
@@ -88,8 +88,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             UIView.animate(withDuration: 1, animations: {
                 currentCell.alpha = 1
             })
-            
-            //             self.parent?.performSegue(withIdentifier: options[indexPath.row].segue, sender: self)
+                         self.parent?.performSegue(withIdentifier: options[indexPath.row].segue, sender: self)
         }
     }
 }
