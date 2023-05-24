@@ -31,6 +31,11 @@ extension UIViewController {
         }))
         self.present(alert, animated: true)
     }
+    func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 }
 extension String{
     func localizableString() -> String {

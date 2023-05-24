@@ -12,59 +12,56 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var viewModel: LoginViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         emailTextfield.text = "agi@gmail.com"
         passwordTextField.text = "123456"
         // Do any additional setup after loading the view.
+        viewModel = LoginViewModel()
     }
     //MARK: Functions
     
-    func validateFields(){
-        guard let email = emailTextfield.text, !email.isEmpty else {
-            self.emailTextfield.becomeFirstResponder()
-            self.showAlertWith(title: "Found & Lost", message: "Please enter your email".localizableString())
-            return
-        }
-        guard let password = passwordTextField.text, !password.isEmpty else {
-            self.passwordTextField.becomeFirstResponder()
-            self.showAlertWith(title: "Discover the World", message: "Please enter your password".localizableString())
-            return
-        }
-    }
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    func verifyemail(){
-        guard let email = emailTextfield.text else { return }
-        Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+    func validateFields() -> Bool {
+            guard let email = emailTextfield.text, !email.isEmpty else {
+                emailTextfield.becomeFirstResponder()
+                showAlertWith(title: "Found & Lost", message: "Please enter your email".localizableString())
+                return false
+            }
             
-            if let error = error {
-                self.showAlertWith(title: "Error", message: "Your email address isn't verified.")
+            guard let password = passwordTextField.text, !password.isEmpty else {
+                passwordTextField.becomeFirstResponder()
+                showAlertWith(title: "Discover the World", message: "Please enter your password".localizableString())
+                return false
             }
-            self.showOKAlertWith(title: "Verification Email Sent", message: "A verification email has been sent to \(email). Please check your email and follow the instructions to verify your account.", screen: "home")
-        })
-    }
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        if let email = emailTextfield.text, let password = passwordTextField.text{
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                if let e = error {
-                    print("Error\(e)")
-                    self?.validateFields()
-                    self?.showAlertWith(title: "Lost & Found", message: "Please enter valid datas".localizableString())
-                } else {
-                    
-                  //  self?.verifyemail()
-                    let controller = self?.storyboard?.instantiateViewController(identifier: "TabBaarViewController") as! TabBaarViewController
-                    controller.modalPresentationStyle = .fullScreen
-                    controller.modalTransitionStyle = .flipHorizontal
-                    self?.present(controller, animated: true, completion: nil)
-                }
-            }
+            
+            return true
         }
+    func isValidEmail(_ email: String) -> Bool {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            return emailPred.evaluate(with: email)
+        }
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        if let email = emailTextfield.text, let password = passwordTextField.text {
+                    if validateFields() {
+                        viewModel.signIn(email: email, password: password) { [weak self] error in
+                            if let error = error {
+                                print("Error: \(error)")
+                                self?.showAlertWith(title: "Lost & Found", message: "Please enter valid data".localizableString())
+                            } else {
+                                self?.viewModel.sendVerificationEmail(email: email) { [weak self] error in
+                                    if let error = error{
+                                        self?.showAlertWith(title: "Error", message: "Your email address isn't verified.")
+                                    }
+                                    self?.showOKAlertWith(title: "Verification Email Sent", message: "A verification email has been sent to \(email). Please check your email and follow the instructions to verify your account.", screen: "home")
+                                }
+                            }
+                        }
+                    }
+                }
     }
     @IBAction func signupButtonTapped(_ sender: Any) {
         print("tapped")

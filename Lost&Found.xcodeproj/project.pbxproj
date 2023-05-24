@@ -27,8 +27,23 @@
 		4D0F4C3C2A15431A00516495 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */; };
 		4D0F4C3E2A154A1900516495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */; };
 		4D0F4C412A1594C000516495 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F4C402A1594C000516495 /* SettingsViewController.swift */; };
+		4D2B13342A1EB3710041C610 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B13332A1EB3710041C610 /* LoginViewModel.swift */; };
+		4D2B13362A1EB38B0041C610 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B13352A1EB38B0041C610 /* SignupViewModel.swift */; };
+		4D2B13382A1EB3A10041C610 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B13372A1EB3A10041C610 /* ForgotPasswordViewModel.swift */; };
 		4D34D4452A16DB1100BD3167 /* TabBaarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34D4442A16DB1100BD3167 /* TabBaarViewController.swift */; };
 		4D34D4482A16EA4900BD3167 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34D4472A16EA4900BD3167 /* LocationViewController.swift */; };
+		4D64DB8A2A1E2BE00053C5E2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D64DB892A1E2BE00053C5E2 /* RootView.swift */; };
+		4D680EB52A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D680EB32A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodeld */; };
+		4D97B16A2A1CC7DE0062B3D6 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97B1692A1CC7DE0062B3D6 /* LocationDetailsViewController.swift */; };
+		4D97B1702A1CE6B20062B3D6 /* LostFoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97B16F2A1CE6B20062B3D6 /* LostFoundApp.swift */; };
+		4DD366242A1C4CAF003E8B60 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD366232A1C4CAF003E8B60 /* LocationsDataService.swift */; };
+		4DD366262A1C4CEF003E8B60 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD366252A1C4CEF003E8B60 /* LocationsViewModel.swift */; };
+		4DD366292A1C4D33003E8B60 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD366282A1C4D33003E8B60 /* LocationDetailView.swift */; };
+		4DD3662B2A1C4D4F003E8B60 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3662A2A1C4D4F003E8B60 /* LocationMapAnnotationView.swift */; };
+		4DD3662D2A1C4D67003E8B60 /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3662C2A1C4D67003E8B60 /* LocationPreviewView.swift */; };
+		4DD3662F2A1C4D79003E8B60 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3662E2A1C4D79003E8B60 /* LocationListView.swift */; };
+		4DD366312A1C4D89003E8B60 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD366302A1C4D89003E8B60 /* LocationsView.swift */; };
+		4DD366332A1C4DE8003E8B60 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD366322A1C4DE8003E8B60 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +69,23 @@
 		4D0F4C3B2A15431A00516495 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D0F4C402A1594C000516495 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4D2B13332A1EB3710041C610 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4D2B13352A1EB38B0041C610 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		4D2B13372A1EB3A10041C610 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		4D34D4442A16DB1100BD3167 /* TabBaarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBaarViewController.swift; sourceTree = "<group>"; };
 		4D34D4472A16EA4900BD3167 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		4D64DB892A1E2BE00053C5E2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		4D680EB42A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LostFound_CoreData.xcdatamodel; sourceTree = "<group>"; };
+		4D97B1692A1CC7DE0062B3D6 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		4D97B16F2A1CE6B20062B3D6 /* LostFoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostFoundApp.swift; sourceTree = "<group>"; };
+		4DD366232A1C4CAF003E8B60 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
+		4DD366252A1C4CEF003E8B60 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		4DD366282A1C4D33003E8B60 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		4DD3662A2A1C4D4F003E8B60 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		4DD3662C2A1C4D67003E8B60 /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
+		4DD3662E2A1C4D79003E8B60 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		4DD366302A1C4D89003E8B60 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		4DD366322A1C4DE8003E8B60 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A60CD1E6D5713D718DABFBC9 /* Pods-Lost&Found.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.debug.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.debug.xcconfig"; sourceTree = "<group>"; };
 		F352C7B2CC3419E02F6CE938 /* Pods-Lost&Found.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lost&Found.release.xcconfig"; path = "Target Support Files/Pods-Lost&Found/Pods-Lost&Found.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,17 +123,20 @@
 		4D0F4C082A14EC9000516495 /* Lost&Found */ = {
 			isa = PBXGroup;
 			children = (
+				4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */,
+				4D0F4C172A14EC9100516495 /* Info.plist */,
+				4D680EB32A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodeld */,
+				4D97B16F2A1CE6B20062B3D6 /* LostFoundApp.swift */,
+				4D0F4C092A14EC9000516495 /* AppDelegate.swift */,
+				4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */,
 				4D0F4C312A1523C600516495 /* Extension */,
+				4DD366222A1C4C96003E8B60 /* DataService */,
 				4D0F4C1F2A14ECA400516495 /* Model */,
 				4D0F4C1E2A14ECA100516495 /* ViewModel */,
 				4D0F4C1D2A14EC9E00516495 /* View */,
-				4D0F4C092A14EC9000516495 /* AppDelegate.swift */,
-				4D0F4C0B2A14EC9000516495 /* SceneDelegate.swift */,
 				4D0F4C0F2A14EC9000516495 /* Main.storyboard */,
-				4D0F4C122A14EC9100516495 /* Assets.xcassets */,
 				4D0F4C142A14EC9100516495 /* LaunchScreen.storyboard */,
-				4D0F4C172A14EC9100516495 /* Info.plist */,
-				4D0F4C3D2A154A1900516495 /* GoogleService-Info.plist */,
+				4D0F4C122A14EC9100516495 /* Assets.xcassets */,
 			);
 			path = "Lost&Found";
 			sourceTree = "<group>";
@@ -111,7 +144,8 @@
 		4D0F4C1D2A14EC9E00516495 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D34D4462A16EA3500BD3167 /* Location */,
+				4D680EB02A1B7A090092E3C0 /* LocationDetailsScreen */,
+				4D34D4462A16EA3500BD3167 /* LocationScreen */,
 				4D0F4C3F2A1594A900516495 /* SettingsScreen */,
 				4D0F4C362A153DA500516495 /* HomeScreen */,
 				4D0F4C422A1596A600516495 /* TabBar */,
@@ -119,6 +153,7 @@
 				4D0F4C292A14F12900516495 /* SigupScreen */,
 				4D0F4C262A14F10500516495 /* LoginScreen */,
 				4D0F4C202A14EDB300516495 /* IntroScreen */,
+				4D64DB892A1E2BE00053C5E2 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +161,10 @@
 		4D0F4C1E2A14ECA100516495 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4DD366252A1C4CEF003E8B60 /* LocationsViewModel.swift */,
+				4D2B13332A1EB3710041C610 /* LoginViewModel.swift */,
+				4D2B13352A1EB38B0041C610 /* SignupViewModel.swift */,
+				4D2B13372A1EB3A10041C610 /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -134,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4D0F4C2F2A14F6D500516495 /* IntroModel.swift */,
+				4DD366322A1C4DE8003E8B60 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,12 +255,41 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		4D34D4462A16EA3500BD3167 /* Location */ = {
+		4D34D4462A16EA3500BD3167 /* LocationScreen */ = {
 			isa = PBXGroup;
 			children = (
 				4D34D4472A16EA4900BD3167 /* LocationViewController.swift */,
 			);
-			path = Location;
+			path = LocationScreen;
+			sourceTree = "<group>";
+		};
+		4D680EB02A1B7A090092E3C0 /* LocationDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4DD366272A1C4D15003E8B60 /* LocationSwiftUI */,
+				4D97B1692A1CC7DE0062B3D6 /* LocationDetailsViewController.swift */,
+			);
+			path = LocationDetailsScreen;
+			sourceTree = "<group>";
+		};
+		4DD366222A1C4C96003E8B60 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				4DD366232A1C4CAF003E8B60 /* LocationsDataService.swift */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
+		4DD366272A1C4D15003E8B60 /* LocationSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				4DD366302A1C4D89003E8B60 /* LocationsView.swift */,
+				4DD3662E2A1C4D79003E8B60 /* LocationListView.swift */,
+				4DD3662C2A1C4D67003E8B60 /* LocationPreviewView.swift */,
+				4DD3662A2A1C4D4F003E8B60 /* LocationMapAnnotationView.swift */,
+				4DD366282A1C4D33003E8B60 /* LocationDetailView.swift */,
+			);
+			path = LocationSwiftUI;
 			sourceTree = "<group>";
 		};
 		952CA6BAEEB392651769A5CA /* Frameworks */ = {
@@ -358,21 +427,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D0F4C302A14F6D600516495 /* IntroModel.swift in Sources */,
+				4D680EB52A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodeld in Sources */,
 				4D0F4C3C2A15431A00516495 /* UIViewController+Extension.swift in Sources */,
+				4DD366262A1C4CEF003E8B60 /* LocationsViewModel.swift in Sources */,
 				4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */,
 				4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */,
+				4D2B13362A1EB38B0041C610 /* SignupViewModel.swift in Sources */,
+				4D64DB8A2A1E2BE00053C5E2 /* RootView.swift in Sources */,
+				4D97B16A2A1CC7DE0062B3D6 /* LocationDetailsViewController.swift in Sources */,
+				4DD366332A1C4DE8003E8B60 /* Location.swift in Sources */,
 				4D0F4C352A153C7B00516495 /* UIViewControllers+Alerts.swift in Sources */,
+				4DD366242A1C4CAF003E8B60 /* LocationsDataService.swift in Sources */,
+				4D97B1702A1CE6B20062B3D6 /* LostFoundApp.swift in Sources */,
 				4D0F4C332A15241300516495 /* UIView+Extension.swift in Sources */,
+				4DD3662F2A1C4D79003E8B60 /* LocationListView.swift in Sources */,
 				4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */,
 				4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */,
 				4D0F4C382A153DBB00516495 /* HomeViewController.swift in Sources */,
 				4D0F4C412A1594C000516495 /* SettingsViewController.swift in Sources */,
 				4D0F4C0C2A14EC9000516495 /* SceneDelegate.swift in Sources */,
+				4DD3662D2A1C4D67003E8B60 /* LocationPreviewView.swift in Sources */,
 				4D0F4C282A14F12300516495 /* LoginViewController.swift in Sources */,
+				4D2B13342A1EB3710041C610 /* LoginViewModel.swift in Sources */,
 				4D0F4C3A2A1541B900516495 /* UserDefaults+Extension.swift in Sources */,
+				4D2B13382A1EB3A10041C610 /* ForgotPasswordViewModel.swift in Sources */,
+				4DD366292A1C4D33003E8B60 /* LocationDetailView.swift in Sources */,
 				4D34D4452A16DB1100BD3167 /* TabBaarViewController.swift in Sources */,
 				4D0F4C232A14F0E100516495 /* SlideCell.swift in Sources */,
+				4DD366312A1C4D89003E8B60 /* LocationsView.swift in Sources */,
 				4D34D4482A16EA4900BD3167 /* LocationViewController.swift in Sources */,
+				4DD3662B2A1C4D4F003E8B60 /* LocationMapAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +609,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app wants to use your camera";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app wants to use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app wants to use your location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -557,6 +643,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app wants to use your camera";
+				INFOPLIST_KEY_NSLocationUsageDescription = "This app wants to use your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app wants to use your location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -598,6 +686,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D680EB32A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D680EB42A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodel */,
+			);
+			currentVersion = 4D680EB42A1B7C420092E3C0 /* LostFound_CoreData.xcdatamodel */;
+			path = LostFound_CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4D0F4BFE2A14EC9000516495 /* Project object */;
 }
