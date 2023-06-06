@@ -21,18 +21,18 @@ class TabBaarViewController: SOTabBarController {
         
         self.delegate = self
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
-        let historyStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HISTORY_ID")
-        let addStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADD_ID")
-        let locationStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationViewController")
+        let locationStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationDetailsViewController")
+        let addStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
+        let historyStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecentPostsViewController")
         let meStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController")
         
         homeStoryboard.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home2"), selectedImage: UIImage(named: "home_Selected"))
-        historyStoryboard.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "history2"), selectedImage: UIImage(named: "history_Selected"))
-        addStoryboard.tabBarItem = UITabBarItem(title: "Add", image: UIImage(named: "plus2"), selectedImage: UIImage(named: "plus_Selected"))
         locationStoryboard.tabBarItem = UITabBarItem(title: "Location", image: UIImage(named: "location2"), selectedImage: UIImage(named: "location_Selected"))
+        addStoryboard.tabBarItem = UITabBarItem(title: "Add", image: UIImage(named: "plus2"), selectedImage: UIImage(named: "plus_Selected"))
+        historyStoryboard.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "history2"), selectedImage: UIImage(named: "history_Selected"))
         meStoryboard.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "man2"), selectedImage: UIImage(named: "menu_Selected"))
            
-        viewControllers = [homeStoryboard, historyStoryboard,addStoryboard,locationStoryboard,meStoryboard]
+        viewControllers = [homeStoryboard,locationStoryboard ,addStoryboard,historyStoryboard,meStoryboard]
     }
     
 }

@@ -8,15 +8,21 @@
 import UIKit
 import Firebase
 
-class SignupViewController: UIViewController {
+
+class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
     var viewModel: SignupViewModel!
-    
+  //  weak var delegate: SignUpDelegate?
+    var userData: User?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,10 +73,14 @@ class SignupViewController: UIViewController {
                     if let error = error{
                         self?.showAlertWith(title: "Lost & Found", message: "Please enter valid data".localizableString())
                     }else {
+                        
+//                        self?.delegate?.didSignUp(firstName: firstName, lastName: lastName)
                         let controller = self?.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+
                           controller.modalPresentationStyle = .fullScreen
                           controller.modalTransitionStyle = .flipHorizontal
                         self?.present(controller, animated: true, completion: nil)
+                        
                     }
                 }
             }

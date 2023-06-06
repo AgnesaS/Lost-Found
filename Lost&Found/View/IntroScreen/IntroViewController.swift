@@ -36,13 +36,14 @@ class IntroViewController: UIViewController {
         pageControll.numberOfPages = slides.count
         
     }
+    
 
     @IBAction func nextButtonPressed(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-            UserDefaults.standard.isIntroScreen = true
+          //  UserDefaults.standard.isIntroScreen = true
             present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1

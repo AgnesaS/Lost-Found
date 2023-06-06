@@ -18,7 +18,8 @@ struct LostFoundApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LocationView().environmentObject(vm)
+                LocationView().environmentObject(vm)
+            
         }
     }
 }

@@ -52,17 +52,21 @@ class LoginViewController: UIViewController {
                                 print("Error: \(error)")
                                 self?.showAlertWith(title: "Lost & Found", message: "Please enter valid data".localizableString())
                             } else {
-                                self?.viewModel.sendVerificationEmail(email: email) { [weak self] error in
-                                    if let error = error{
-                                        self?.showAlertWith(title: "Error", message: "Your email address isn't verified.")
-                                    }
-                                    self?.showOKAlertWith(title: "Verification Email Sent", message: "A verification email has been sent to \(email). Please check your email and follow the instructions to verify your account.", screen: "home")
+//                                self?.viewModel.sendVerificationEmail(email: email) { [weak self] error in
+//                                    if let error = error{
+//                                        self?.showAlertWith(title: "Error", message: "Your email address isn't verified.")
+//                                    }
+//                                    self?.showOKAlertWith(title: "Verification Email Sent", message: "A verification email has been sent to \(email). Please check your email and follow the instructions to verify your account.", screen: "home")
+                                let controller = self?.storyboard?.instantiateViewController(identifier: "TabBaarViewController") as! TabBaarViewController
+                                controller.modalPresentationStyle = .fullScreen
+                                controller.modalTransitionStyle = .flipHorizontal
+                                self?.present(controller, animated: true, completion: nil)
                                 }
                             }
                         }
                     }
                 }
-    }
+
     @IBAction func signupButtonTapped(_ sender: Any) {
         print("tapped")
         let controller = storyboard?.instantiateViewController(identifier: "SignupViewController") as! SignupViewController
