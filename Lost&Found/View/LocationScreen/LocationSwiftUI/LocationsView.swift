@@ -9,25 +9,19 @@ import SwiftUI
 import MapKit
 import UIKit
 
-
 struct LocationView: View {
-    
     @EnvironmentObject private var vm: LocationsViewModel
     
     var body: some View {
         ZStack {
-
           mapLayer
                 .ignoresSafeArea()
-            
-            
             VStack(spacing: 0){
                header
                 .padding()
                 
                 Spacer()
                 locationPreviewStack
-                
             }
         }
         .sheet(item: $vm.sheetLocation, onDismiss: nil) { location in
@@ -39,14 +33,12 @@ struct LocationView: View {
         }
     }
 }
-
 struct Location_Previews: PreviewProvider {
     static var previews: some View {
         let vm = LocationsViewModel()
         LocationView().environmentObject(vm)
     }
 }
-
 extension LocationView{
     private var header: some View{
         VStack {
@@ -74,7 +66,6 @@ extension LocationView{
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.3), radius: 20, x:0, y: 15)
     }
-    
     private var mapLayer: some View{
         Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations, annotationContent: { location in
             MapAnnotation(coordinate: location.coordinates){

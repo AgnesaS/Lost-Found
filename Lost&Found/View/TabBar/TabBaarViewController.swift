@@ -9,17 +9,19 @@ import UIKit
 import SOTabBar
 
 class TabBaarViewController: SOTabBarController {
-
+    
     override func loadView() {
         super.loadView()
         SOTabBarSetting.tabBarTintColor = .black
         SOTabBarSetting.tabBarCircleSize = CGSize(width: 60, height: 60)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.delegate = self
+        setupTabBar()
+    }
+    //MARK: Functions
+    func setupTabBar(){
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
         let locationStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocationDetailsViewController")
         let addStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
@@ -31,12 +33,10 @@ class TabBaarViewController: SOTabBarController {
         addStoryboard.tabBarItem = UITabBarItem(title: "Add", image: UIImage(named: "plus2"), selectedImage: UIImage(named: "plus_Selected"))
         historyStoryboard.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "history2"), selectedImage: UIImage(named: "history_Selected"))
         meStoryboard.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "man2"), selectedImage: UIImage(named: "menu_Selected"))
-           
+        
         viewControllers = [homeStoryboard,locationStoryboard ,addStoryboard,historyStoryboard,meStoryboard]
     }
-    
 }
-
 extension TabBaarViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
         print(viewController.tabBarItem.title ?? "")

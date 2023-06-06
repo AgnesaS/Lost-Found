@@ -8,7 +8,7 @@
 import UIKit
 
 class IntroViewController: UIViewController {
-    
+    //MARK: IBOutlets
     @IBOutlet weak var slidesCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControll: UIPageControl!
@@ -31,19 +31,18 @@ class IntroViewController: UIViewController {
         slidesCollectionView.register(UINib(nibName: "SlideCell", bundle: nil), forCellWithReuseIdentifier: "SlideCell")
         
         slides = [IntroModel(title: "Lost, Found and Reunited", description: "Where lost items find their way back home.", image: UIImage(named: "1")!),
-                 IntroModel(title: "Just a click.", description: "Capture and share your findings within our app", image: UIImage(named: "2")!),
-                 IntroModel(title: "The power of connection", description: "Join and recover what's missing.", image: UIImage(named: "3")!)]
+                  IntroModel(title: "Just a click.", description: "Capture and share your findings within our app", image: UIImage(named: "2")!),
+                  IntroModel(title: "The power of connection", description: "Join and recover what's missing.", image: UIImage(named: "3")!)]
         pageControll.numberOfPages = slides.count
         
     }
-    
-
+    //MARK: IBActions
     @IBAction func nextButtonPressed(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-          //  UserDefaults.standard.isIntroScreen = true
+            //  UserDefaults.standard.isIntroScreen = true
             present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1
@@ -57,7 +56,6 @@ extension IntroViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return slides.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideCell.identifier, for: indexPath ) as! SlideCell
         cell.setup(slides[indexPath.row])

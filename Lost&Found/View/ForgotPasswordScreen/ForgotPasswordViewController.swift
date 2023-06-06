@@ -9,14 +9,14 @@ import UIKit
 import Firebase
 
 class ForgotPasswordViewController: UIViewController {
+    //MARK: IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
-
+    
     var viewModel: ForgotPasswordViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-   viewModel = ForgotPasswordViewModel()
+        viewModel = ForgotPasswordViewModel()
     }
-    
     //MARK: Functions
     func validateFields() -> Bool{
         guard let email = emailTextField.text, !email.isEmpty else {
@@ -31,6 +31,7 @@ class ForgotPasswordViewController: UIViewController {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
+    //MARK: IBActions
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
         if  validateFields(){
             if let email = emailTextField.text{
@@ -40,11 +41,8 @@ class ForgotPasswordViewController: UIViewController {
                     }else {
                         self?.showOKAlertWith(title: "Lost & Found", message: "A password reset email has been send to this address!".localizableString(), screen: "login")
                     }
-                    
                 }
             }
         }
-        
-            
-        }
+    }
 }

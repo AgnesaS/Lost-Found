@@ -17,12 +17,10 @@ class SlideCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     func setup(_ slide: IntroModel) {
         slideImageView.image = slide.image
         slideTitleLabel.text = slide.title
         slideDescriptionLabel.text = slide.description
     }
-
 }

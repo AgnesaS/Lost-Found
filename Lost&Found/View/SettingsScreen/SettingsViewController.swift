@@ -10,15 +10,15 @@ import Photos
 import Firebase
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //MARK: IBOutlets
     @IBOutlet weak var profileImage: UIImageView!
     
     var imagePicker: UIImagePickerController?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePicker()
-
-        // Do any additional setup after loading the view.
     }
+    //MARK: Functions
     func setupImagePicker(){
         imagePicker = UIImagePickerController()
         imagePicker?.sourceType = .photoLibrary
@@ -35,6 +35,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker?.dismiss(animated: true)
     }
+    //MARK: IBActions
     @IBAction func changePhotoButtonPressed(_ sender: Any) {
         if PHPhotoLibrary.authorizationStatus() == .authorized{
             if let imagePic = imagePicker{
@@ -42,9 +43,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             }
         }
     }
-    
     @IBAction func logOutTapped(_ sender: Any) {
-
         do {
             try Auth.auth().signOut()
             print("logout")

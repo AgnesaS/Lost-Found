@@ -23,9 +23,7 @@ struct LocationPreviewView: View {
             VStack(spacing: 8){
                 learnMoreButton
                 nextButton
-              
             }
-        
         }
         .padding(20)
         .background(RoundedRectangle(cornerRadius: 10)

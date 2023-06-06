@@ -8,6 +8,7 @@
 import UIKit
 
 class PostCell: UICollectionViewCell {
+    //MARK: IBOutlets
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -16,8 +17,8 @@ class PostCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    //MARK: Functions
     func setup(_ post: Post){
         postImageView.image = post.image
         postTitleLabel.text = post.title

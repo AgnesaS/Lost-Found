@@ -14,7 +14,6 @@ class LoginViewModel{
             completion(error)
         }
     }
-    
     func sendVerificationEmail(email: String, completion: @escaping (Error?) -> Void) {
         Auth.auth().currentUser?.sendEmailVerification(completion: { error in
             completion(error)

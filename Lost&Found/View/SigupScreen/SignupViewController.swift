@@ -8,26 +8,20 @@
 import UIKit
 import Firebase
 
-
 class SignupViewController: UIViewController, UITextFieldDelegate {
+    //MARK: IBOutlets
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
     var viewModel: SignupViewModel!
-  //  weak var delegate: SignUpDelegate?
     var userData: User?
+    //  weak var delegate: SignUpDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         viewModel = SignupViewModel()
-        // Do any additional setup after loading the view.
     }
     //MARK: Functions
     func validateFields() -> Bool {
@@ -36,13 +30,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             self.showAlertWith(title: "Lost & Found", message: "Please enter your First Name".localizableString())
             return false
         }
-        
         guard let lastName = lastNameTextfield.text, !lastName.isEmpty else {
             self.lastNameTextfield.becomeFirstResponder()
             self.showAlertWith(title: "Lost & Found", message: "Please enter your Last Name".localizableString())
             return false
         }
-        
         guard let email = emailTextField.text, !email.isEmpty else {
             self.emailTextField.becomeFirstResponder()
             self.showAlertWith(title: "Lost & Found", message: "Please enter your email address".localizableString())
@@ -65,7 +57,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-    
+    //MARK: IBActions
     @IBAction func signupButtonTapped(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextfield.text, let firstName = firstNameTextfield.text, let lastName = lastNameTextfield.text, let number = phoneNumberTextField.text{
             if validateFields(){
@@ -74,17 +66,16 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                         self?.showAlertWith(title: "Lost & Found", message: "Please enter valid data".localizableString())
                     }else {
                         
-//                        self?.delegate?.didSignUp(firstName: firstName, lastName: lastName)
+                        //                        self?.delegate?.didSignUp(firstName: firstName, lastName: lastName)
                         let controller = self?.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-
-                          controller.modalPresentationStyle = .fullScreen
-                          controller.modalTransitionStyle = .flipHorizontal
+                        
+                        controller.modalPresentationStyle = .fullScreen
+                        controller.modalTransitionStyle = .flipHorizontal
                         self?.present(controller, animated: true, completion: nil)
                         
                     }
                 }
             }
-            
         }
     }
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -93,6 +84,4 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         controller.modalTransitionStyle = .flipHorizontal
         present(controller, animated: true, completion: nil)
     }
-
-
 }

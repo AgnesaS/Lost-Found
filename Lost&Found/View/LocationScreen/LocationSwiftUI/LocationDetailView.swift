@@ -35,7 +35,6 @@ struct LocationDetailView: View {
         .overlay(backButton, alignment: .topLeading)
     }
 }
-
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LocationDetailView(location: LocationsDataService.locations.first!).environmentObject(LocationsViewModel())
@@ -71,10 +70,6 @@ struct LocationDetailView_Previews: PreviewProvider {
                 Text(location.description)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                
-            
-                
-                
             }
         }
         private var mapLayer: some View{
@@ -102,7 +97,5 @@ struct LocationDetailView_Previews: PreviewProvider {
                     .shadow(radius: 4)
                     .padding()
             }
-
         }
-        
     }

@@ -34,7 +34,6 @@ struct LocationMapAnnotationView: View {
         }
     }
 }
-
 struct LocationMapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
