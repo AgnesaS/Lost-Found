@@ -81,27 +81,58 @@ class PostViewController: UIViewController {
         homeViewController.modalTransitionStyle = .flipHorizontal
         self.present(homeViewController, animated: true, completion: nil)
     }
+    func validateFields() -> Bool{
+        guard let categoryType = categoryTypeTextField.text, !categoryType.isEmpty else{
+            self.categoryTypeTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please select your category".localizableString())
+            return false
+        }
+        guard let title = titleTextField.text, !title.isEmpty else{
+            self.titleTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please enter your title".localizableString())
+            return false
+        }
+        guard let description = descriptionTextField.text, !description.isEmpty else{
+            self.descriptionTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please enter your description".localizableString())
+            return false
+        }
+        guard let location = locationTextField.text, !location.isEmpty else{
+            self.locationTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please enter your location".localizableString())
+            return false
+        }
+        guard let dateAndTime = dateTextField.text, !dateAndTime.isEmpty else{
+            self.dateTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please enter date and time".localizableString())
+            return false
+        }
+        return true
+    }
     //MARK: IBActions
     @IBAction func postButtonTapped(_ sender: Any) {
         print("button clicked")
-        guard let category = categoryTypeTextField.text else {
-            return
+        if validateFields(){
+            guard let category = categoryTypeTextField.text else {
+                return
+            }
+            let title = titleTextField.text ?? ""
+            let description = descriptionTextField.text ?? ""
+            let location = locationTextField.text ?? ""
+            let date = dateTextField.text ?? ""
+            
+            let post = Post(image: UIImage(named: "1")!, title: title, location: location, date: date, postDescription: description)
+            
+            delegate?.didCreatePost(post, category: category)
+            
+            let alertController = UIAlertController(title: "Alert", message: "Your post has been created", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                self?.navigateToHome()
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
-        let title = titleTextField.text ?? ""
-        let description = descriptionTextField.text ?? ""
-        let location = locationTextField.text ?? ""
-        let date = dateTextField.text ?? ""
         
-        let post = Post(image: UIImage(named: "1")!, title: title, location: location, date: date, postDescription: description)
-        
-        delegate?.didCreatePost(post, category: category)
-        
-        let alertController = UIAlertController(title: "Alert", message: "Your post has been created", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            self?.navigateToHome()
-        }
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
     }
 }
 extension PostViewController: UIPickerViewDelegate{

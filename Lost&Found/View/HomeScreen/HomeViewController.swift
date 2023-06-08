@@ -7,7 +7,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, PostCellDelegate {
+    func bookmarkPost(_ post: Post) {
+        recentPostsViewController.bookmarkedPosts.append(post)
+    }
+    
     //MARK: IBOutles
     @IBOutlet weak var postsCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
@@ -15,6 +19,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lostAndFoundSegmentControl: UISegmentedControl!
     @IBOutlet var menuTableView: UITableView!
     
+    //MARK: Proporties
+    var recentPostsViewController = RecentPostsViewController()
+    var bookmarkedPosts: [Post] = []
     var postViewController = PostViewController()
     var userData: User?
     var lostItems: [Post] = []
@@ -23,29 +30,37 @@ class HomeViewController: UIViewController {
     var menu = false
     var selectedSegmentIndex = 0
     var home = CGAffineTransform()
-    var options: [option] = [option(image: UIImage(systemName: "person.fill")!,title: "Profile", segue: "Profile"),option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),option(image: UIImage(systemName: "list.bullet")!,title: "Home", segue: "Home"),option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
+    var options: [Option] = []
     
-    struct option {
-        var image = UIImage()
-        var title = String()
-        var segue = String()
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        setupCollectionView()
+        home = self.containerView.transform
+        postViewController.delegate = self
+        setDetails()
+        setupSideBar()
+//        recentPostsViewController = storyboard?.instantiateViewController(withIdentifier: "RecentPostsViewController") as? RecentPostsViewController
+//        recentPostsViewController.bookmarkedPosts = bookmarkedPosts
+    }
+    func setupTableView(){
         menuTableView.delegate = self
         menuTableView.dataSource = self
         menuTableView.register(UINib(nibName: "SideBarCell", bundle: nil), forCellReuseIdentifier: "SideBarCell")
         menuTableView.backgroundColor = .clear
+    }
+    func setupCollectionView(){
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
         postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
-        home = self.containerView.transform
-        postViewController.delegate = self
-        setDetails()
+    }
+    func setupSideBar(){
+        options =  [Option(image: UIImage(systemName: "person.fill")!,title: "Profile", segue: "Profile"),Option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "list.bullet")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
     }
     func setLost(){
-        lostItems = [Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
-                     Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "baked potato")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
+        lostItems = [Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
+                     Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
         postsCollectionView.reloadData()
     }
     func setFound(){
@@ -150,6 +165,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }else{
             post = foundItems[indexPath.item]
         }
+        cell.delegate = self
         cell.setup(post)
         return cell
     }

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-VJ-ewR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loogo" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-VJ-ewR">
                                 <rect key="frame" x="-53.666666666666657" y="176" width="500.33333333333326" height="500"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <color key="tintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -27,7 +27,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <color key="backgroundColor" red="0.38823530080000002" green="0.50588238240000005" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xzo-VJ-ewR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8mK-Ff-xJ5"/>
                             <constraint firstItem="xzo-VJ-ewR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b4B-kG-BHf"/>
@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="500" height="500"/>
+        <image name="loogo" width="500" height="500"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

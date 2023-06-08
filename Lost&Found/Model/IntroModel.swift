@@ -12,3 +12,8 @@ struct IntroModel {
     let description: String
     let image: UIImage
 }
+struct Option {
+    var image = UIImage()
+    var title = String()
+    var segue = String()
+}
