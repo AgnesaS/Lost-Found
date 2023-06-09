@@ -11,12 +11,18 @@ import Firebase
 class ForgotPasswordViewController: UIViewController {
     //MARK: IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
     
+    var customTitle: String? 
     var viewModel: ForgotPasswordViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = ForgotPasswordViewModel()
+        setupTitleLabel()
     }
+    private func setupTitleLabel() {
+            titleLabel.text = customTitle ?? "Forgot Password"
+        }
     //MARK: Functions
     func validateFields() -> Bool{
         guard let email = emailTextField.text, !email.isEmpty else {

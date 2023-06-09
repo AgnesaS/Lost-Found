@@ -7,10 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, PostCellDelegate {
-    func bookmarkPost(_ post: Post) {
-        recentPostsViewController.bookmarkedPosts.append(post)
-    }
+class HomeViewController: UIViewController{
+//    func bookmarkPost(_ post: Post) {
+//        recentPostsViewController?.bookmarkedPosts.append(post)
+//    }
     
     //MARK: IBOutles
     @IBOutlet weak var postsCollectionView: UICollectionView!
@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, PostCellDelegate {
     @IBOutlet var menuTableView: UITableView!
     
     //MARK: Proporties
-    var recentPostsViewController = RecentPostsViewController()
+    var recentPostsViewController: RecentPostsViewController?
     var bookmarkedPosts: [Post] = []
     var postViewController = PostViewController()
     var userData: User?
@@ -32,17 +32,16 @@ class HomeViewController: UIViewController, PostCellDelegate {
     var home = CGAffineTransform()
     var options: [Option] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupCollectionView()
+        setDetails()
         home = self.containerView.transform
         postViewController.delegate = self
-        setDetails()
         setupSideBar()
-//        recentPostsViewController = storyboard?.instantiateViewController(withIdentifier: "RecentPostsViewController") as? RecentPostsViewController
-//        recentPostsViewController.bookmarkedPosts = bookmarkedPosts
+        //        recentPostsViewController = storyboard?.instantiateViewController(withIdentifier: "RecentPostsViewController") as? RecentPostsViewController
+        //        recentPostsViewController.bookmarkedPosts = bookmarkedPosts
     }
     func setupTableView(){
         menuTableView.delegate = self
@@ -117,14 +116,6 @@ class HomeViewController: UIViewController, PostCellDelegate {
         selectedSegmentIndex = sender.selectedSegmentIndex
         setDetails()
     }
-    //    @IBAction func showProfile(_ sender: Any) {
-    //        print("tapped")
-    //        let controller = storyboard?.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-    //        controller.userData = userData // Pass the user data
-    //        controller.modalPresentationStyle = .fullScreen
-    //        controller.modalTransitionStyle = .flipHorizontal
-    //        present(controller, animated: true, completion: nil)
-    //    }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -165,7 +156,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }else{
             post = foundItems[indexPath.item]
         }
-        cell.delegate = self
+      //  cell.delegate = recentPostsViewController
         cell.setup(post)
         return cell
     }
@@ -173,14 +164,31 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let size = (collectionView.frame.size.width - 20 ) / 2
         return CGSize(width: size, height: size)
     }
-}
-extension HomeViewController: PostViewControllerDelegate {
-    func didCreatePost(_ post: Post, category: String) {
-        if category == "Lost" {
-            lostItems.append(post)
-        } else if category == "Found" {
-            foundItems.append(post)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == postsCollectionView {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let postDetailsVC = storyboard.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController {
+                var selectedItem: Post
+                if selectedSegmentIndex == 0 {
+                    selectedItem = lostItems[indexPath.item]
+                } else {
+                    selectedItem = foundItems[indexPath.item]
+                }
+                postDetailsVC.item = selectedItem
+                navigationController?.pushViewController(postDetailsVC, animated: true)
+            }
         }
-        postsCollectionView.reloadData()
     }
-}
+
+
+    }
+ extension HomeViewController: PostViewControllerDelegate {
+                func didCreatePost(_ post: Post, category: String) {
+                    if category == "Lost" {
+                        lostItems.append(post)
+                    } else if category == "Found" {
+                        foundItems.append(post)
+                    }
+                    postsCollectionView.reloadData()
+                }
+            }

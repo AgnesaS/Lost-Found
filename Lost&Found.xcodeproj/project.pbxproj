@@ -60,6 +60,12 @@
 		4DDAF4292A24E6CE007049CE /* LexendDeca-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DDAF4232A24E6CE007049CE /* LexendDeca-ExtraLight.ttf */; };
 		4DDAF42A2A24E6CE007049CE /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DDAF4242A24E6CE007049CE /* LexendDeca-SemiBold.ttf */; };
 		4DDAF42C2A24E743007049CE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDAF42B2A24E743007049CE /* Fonts.swift */; };
+		4DDBF9F42A31F2F100CEF1A0 /* ChangeFirstLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBF9F32A31F2F100CEF1A0 /* ChangeFirstLastNameViewController.swift */; };
+		4DDBF9F62A32018000CEF1A0 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBF9F52A32018000CEF1A0 /* AboutUsViewController.swift */; };
+		4DDBF9F82A32155600CEF1A0 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBF9F72A32155600CEF1A0 /* StatisticsViewController.swift */; };
+		4DDBF9FE2A32164400CEF1A0 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBF9FC2A32164400CEF1A0 /* StatsCell.swift */; };
+		4DDBF9FF2A32164400CEF1A0 /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDBF9FD2A32164400CEF1A0 /* StatsCell.xib */; };
+		4DDDA4312A32657300E3727C /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDA4302A32657300E3727C /* PostDetailsViewController.swift */; };
 		4DE535F42A1FB2B700073864 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE535F32A1FB2B700073864 /* ProfileViewController.swift */; };
 		4DE535F62A1FB75700073864 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE535F52A1FB75700073864 /* User.swift */; };
 		4DE535F92A210A9E00073864 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE535F82A210A9E00073864 /* PostViewController.swift */; };
@@ -122,6 +128,12 @@
 		4DDAF4232A24E6CE007049CE /* LexendDeca-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-ExtraLight.ttf"; sourceTree = "<group>"; };
 		4DDAF4242A24E6CE007049CE /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		4DDAF42B2A24E743007049CE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4DDBF9F32A31F2F100CEF1A0 /* ChangeFirstLastNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFirstLastNameViewController.swift; sourceTree = "<group>"; };
+		4DDBF9F52A32018000CEF1A0 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		4DDBF9F72A32155600CEF1A0 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		4DDBF9FC2A32164400CEF1A0 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		4DDBF9FD2A32164400CEF1A0 /* StatsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsCell.xib; sourceTree = "<group>"; };
+		4DDDA4302A32657300E3727C /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		4DE535F32A1FB2B700073864 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4DE535F52A1FB75700073864 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4DE535F82A210A9E00073864 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -188,8 +200,9 @@
 				4DE535F12A1FB27700073864 /* ProfileScreen */,
 				4D0F4C3F2A1594A900516495 /* SettingsScreen */,
 				4DA1872B2A2F79350015AA0B /* RecentPosts */,
-				4DE535F72A210A8600073864 /* PostScreen */,
+				4DE535F72A210A8600073864 /* AddPostScreen */,
 				4D680EB02A1B7A090092E3C0 /* LocationScreen */,
+				4DDDA42F2A32653700E3727C /* PostDetails */,
 				4D0F4C362A153DA500516495 /* HomeScreen */,
 				4D0F4C422A1596A600516495 /* TabBar */,
 				4D0F4C2C2A14F14200516495 /* ForgotPasswordScreen */,
@@ -292,7 +305,11 @@
 		4D0F4C3F2A1594A900516495 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4DDBF9F92A32160B00CEF1A0 /* StatsCell */,
 				4D0F4C402A1594C000516495 /* SettingsViewController.swift */,
+				4DDBF9F32A31F2F100CEF1A0 /* ChangeFirstLastNameViewController.swift */,
+				4DDBF9F52A32018000CEF1A0 /* AboutUsViewController.swift */,
+				4DDBF9F72A32155600CEF1A0 /* StatisticsViewController.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -391,6 +408,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4DDBF9F92A32160B00CEF1A0 /* StatsCell */ = {
+			isa = PBXGroup;
+			children = (
+				4DDBF9FC2A32164400CEF1A0 /* StatsCell.swift */,
+				4DDBF9FD2A32164400CEF1A0 /* StatsCell.xib */,
+			);
+			path = StatsCell;
+			sourceTree = "<group>";
+		};
+		4DDDA42F2A32653700E3727C /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4DDDA4302A32657300E3727C /* PostDetailsViewController.swift */,
+			);
+			path = PostDetails;
+			sourceTree = "<group>";
+		};
 		4DE535F12A1FB27700073864 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,12 +433,12 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
-		4DE535F72A210A8600073864 /* PostScreen */ = {
+		4DE535F72A210A8600073864 /* AddPostScreen */ = {
 			isa = PBXGroup;
 			children = (
 				4DE535F82A210A9E00073864 /* PostViewController.swift */,
 			);
-			path = PostScreen;
+			path = AddPostScreen;
 			sourceTree = "<group>";
 		};
 		952CA6BAEEB392651769A5CA /* Frameworks */ = {
@@ -495,6 +529,7 @@
 				4D2670CC2A2758DA0036F34A /* SideBarCell.xib in Resources */,
 				4DC8C3532A27564A003C8426 /* PostCell.xib in Resources */,
 				4D0F4C3E2A154A1900516495 /* GoogleService-Info.plist in Resources */,
+				4DDBF9FF2A32164400CEF1A0 /* StatsCell.xib in Resources */,
 				4D0F4C112A14EC9000516495 /* Main.storyboard in Resources */,
 				4DDAF4272A24E6CE007049CE /* LexendDeca-Regular.ttf in Resources */,
 				4D0F4C242A14F0E100516495 /* SlideCell.xib in Resources */,
@@ -559,7 +594,9 @@
 				4DA187332A2F7D180015AA0B /* SavedPostCell.swift in Sources */,
 				4D0F4C2B2A14F13D00516495 /* SignupViewController.swift in Sources */,
 				4D0F4C2E2A14F15E00516495 /* ForgotPasswordViewController.swift in Sources */,
+				4DDDA4312A32657300E3727C /* PostDetailsViewController.swift in Sources */,
 				4D2B13362A1EB38B0041C610 /* SignupViewModel.swift in Sources */,
+				4DDBF9F42A31F2F100CEF1A0 /* ChangeFirstLastNameViewController.swift in Sources */,
 				4D64DB8A2A1E2BE00053C5E2 /* RootView.swift in Sources */,
 				4DDAF4172A24C9FF007049CE /* HomeViewModel.swift in Sources */,
 				4D2670CB2A2758DA0036F34A /* SideBarCell.swift in Sources */,
@@ -568,13 +605,16 @@
 				4D0F4C352A153C7B00516495 /* UIViewControllers+Alerts.swift in Sources */,
 				4DDAF42C2A24E743007049CE /* Fonts.swift in Sources */,
 				4DD366242A1C4CAF003E8B60 /* LocationsDataService.swift in Sources */,
+				4DDBF9F62A32018000CEF1A0 /* AboutUsViewController.swift in Sources */,
 				4DE535F42A1FB2B700073864 /* ProfileViewController.swift in Sources */,
 				4D97B1702A1CE6B20062B3D6 /* LostFoundApp.swift in Sources */,
 				4D0F4C332A15241300516495 /* UIView+Extension.swift in Sources */,
 				4DD3662F2A1C4D79003E8B60 /* LocationListView.swift in Sources */,
+				4DDBF9FE2A32164400CEF1A0 /* StatsCell.swift in Sources */,
 				4D0F4C0E2A14EC9000516495 /* IntroViewController.swift in Sources */,
 				4D0F4C0A2A14EC9000516495 /* AppDelegate.swift in Sources */,
 				4D0F4C382A153DBB00516495 /* HomeViewController.swift in Sources */,
+				4DDBF9F82A32155600CEF1A0 /* StatisticsViewController.swift in Sources */,
 				4DC8C3392A25F779003C8426 /* Constans.swift in Sources */,
 				4DC8C3522A27564A003C8426 /* PostCell.swift in Sources */,
 				4D0F4C412A1594C000516495 /* SettingsViewController.swift in Sources */,

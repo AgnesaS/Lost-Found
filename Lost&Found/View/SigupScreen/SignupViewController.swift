@@ -10,19 +10,31 @@ import Firebase
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     //MARK: IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var phoneNumberView: UIView!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var genderStackView: UIStackView!
+    @IBOutlet weak var termsAndCondtionLabel: UILabel!
+    @IBOutlet weak var existingAcontStackView: UIStackView!
     
+    
+
+    var email: String?
     var viewModel: SignupViewModel!
     var userData: User?
     //  weak var delegate: SignUpDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SignupViewModel()
+      
     }
+ 
     //MARK: Functions
     func validateFields() -> Bool {
         guard let firstName = firstNameTextfield.text, !firstName.isEmpty else{

@@ -8,11 +8,23 @@
 import UIKit
 import Photos
 import Firebase
+import SafariServices
 
-class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ChangeFirstLastNameDelegate {
+    func didUpdateFirstName(_ firstName: String) {
+        firstNameLabel.text = firstName
+    }
+    
+    func didUpdateLastName(_ lastName: String) {
+        lastNameLabel.text = lastName
+    }
+    
     //MARK: IBOutlets
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    var forgotPasswordViewController: ForgotPasswordViewController?
+
     var imagePicker: UIImagePickerController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +55,53 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             }
         }
     }
+    @IBAction func changeFirstLastNameButtonPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(identifier: "ChangeFirstLastNameViewController") as! ChangeFirstLastNameViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.delegate = self
+        // controller.modalTransitionStyle = .flipHorizontal
+        self.present(controller, animated: true, completion: nil)
+    }
+    @IBAction func changePasswordButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        forgotPasswordViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as? ForgotPasswordViewController
+        // Change the titleLabel text
+        forgotPasswordViewController?.customTitle = "Change Password"
+        
+        forgotPasswordViewController?.modalPresentationStyle = .fullScreen
+        if let forgotPasswordVC = forgotPasswordViewController {
+            present(forgotPasswordVC, animated: true, completion: nil)
+        }
+    }
+    @IBAction func goToPrivacyPolicyLink(_ sender: Any) {
+        let svc = SFSafariViewController(url: URL(string:"https://www.smooth-on.com/page/privacy-policy/?pk_campaign=dynamicsearch&pk_kwd=&gclid=CjwKCAjwjMiiBhA4EiwAZe6jQzxXzebtYuU3Fys66YEXyJo6mUhYZPDLn7UI9iPTxAfNxp0nn-bRZRoCtgYQAvD_BwE")!)
+        self.present(svc, animated: true, completion: nil)
+    }
+    
+    @IBAction func aboutUsButtonPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(identifier: "AboutUsViewController") as! AboutUsViewController
+
+
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func statisticsButtonPressed(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(identifier: "StatisticsViewController") as!StatisticsViewController
+
+
+        self.present(controller, animated: true, completion: nil)
+        
+    }
     @IBAction func logOutTapped(_ sender: Any) {
         do {
             try Auth.auth().signOut()
             print("logout")
             let controller = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-              controller.modalPresentationStyle = .fullScreen
-             // controller.modalTransitionStyle = .flipHorizontal
+            controller.modalPresentationStyle = .fullScreen
+            // controller.modalTransitionStyle = .flipHorizontal
             self.present(controller, animated: true, completion: nil)
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
     }
 }

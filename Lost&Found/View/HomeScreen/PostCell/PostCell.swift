@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol PostCellDelegate: AnyObject {
-    func bookmarkPost(_ post: Post)
-}
+//protocol PostCellDelegate: AnyObject {
+//    func bookmarkPost(_ post: Post)
+//}
 class PostCell: UICollectionViewCell {
     //MARK: IBOutlets
     @IBOutlet weak var postImageView: UIImageView!
@@ -19,7 +19,7 @@ class PostCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     //MARK: - Proporties
-    weak var delegate: PostCellDelegate?
+  //  weak var delegate: PostCellDelegate?
     private var post: Post?
     
     override func awakeFromNib() {
@@ -37,8 +37,11 @@ class PostCell: UICollectionViewCell {
     @IBAction func bookmarkPost(_ sender: Any) {
         print("Pressed")
         if let post = post {
-            delegate?.bookmarkPost(post)
+       //     delegate?.bookmarkPost(post)
         }
+        toggleBookmarkState()
+    }
+    private func toggleBookmarkState() {
         if bookmarkButton.tintColor == .blue {
             bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
             bookmarkButton.tintColor = .label
@@ -48,3 +51,4 @@ class PostCell: UICollectionViewCell {
         }
     }
 }
+

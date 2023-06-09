@@ -15,7 +15,7 @@ class SavedPostCell: UICollectionViewCell {
     @IBOutlet weak var locationPostLabel: UILabel!
     @IBOutlet weak var postDateLabel: UILabel!
     
-    weak var delegate: PostCellDelegate?
+   // weak var delegate: PostCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
