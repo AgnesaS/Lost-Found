@@ -26,6 +26,15 @@ class IntroViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "HasLaunchedBefore")
+               
+               if hasLaunchedBefore {
+                   // Intro screen has been shown before, navigate to the next screen
+              //     navigateToHomeScreen()
+               } else {
+                   // First time launch, show the intro screen
+                   UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
+               }
         slidesCollectionView.dataSource = self
         slidesCollectionView.delegate = self
         slidesCollectionView.register(UINib(nibName: "SlideCell", bundle: nil), forCellWithReuseIdentifier: "SlideCell")
@@ -42,7 +51,7 @@ class IntroViewController: UIViewController {
             let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-            //  UserDefaults.standard.isIntroScreen = true
+            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore") // Update the flag indicating the app has been laun
             present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1

@@ -121,7 +121,7 @@ class PostViewController: UIViewController {
             let location = locationTextField.text ?? ""
             let date = dateTextField.text ?? ""
             
-            let post = Post(image: UIImage(named: "1")!, title: title, location: location, date: date, postDescription: description)
+            let post = Post(isItemFound: false, image: UIImage(named: "1")!, title: title, location: location, date: date, postDescription: description)
             
             delegate?.didCreatePost(post, category: category)
             

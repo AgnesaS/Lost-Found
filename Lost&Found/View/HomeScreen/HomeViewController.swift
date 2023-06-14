@@ -7,10 +7,31 @@
 
 import UIKit
 
-class HomeViewController: UIViewController{
-//    func bookmarkPost(_ post: Post) {
-//        recentPostsViewController?.bookmarkedPosts.append(post)
-//    }
+class HomeViewController: UIViewController, PostCellDelegate{
+    func collectionViewIndexPath(for cell: UICollectionViewCell) -> IndexPath? {
+        
+        if let indexPath = postsCollectionView.indexPath(for: cell) {
+            return indexPath
+        }
+        return nil
+    }
+    
+    
+    func addLostItemToFound(at indexPath: IndexPath) {
+        if selectedSegmentIndex == 0 && indexPath.item < lostItems.count {
+               let post = lostItems[indexPath.item]
+               lostItems.remove(at: indexPath.item)
+               foundItems.append(post)
+           }
+           postsCollectionView.reloadData()
+    }
+    
+    
+    
+    
+    //    func bookmarkPost(_ post: Post) {
+    //        recentPostsViewController?.bookmarkedPosts.append(post)
+    //    }
     
     //MARK: IBOutles
     @IBOutlet weak var postsCollectionView: UICollectionView!
@@ -55,16 +76,16 @@ class HomeViewController: UIViewController{
         postsCollectionView.register(UINib(nibName: "PostCell", bundle: nil), forCellWithReuseIdentifier: "PostCell")
     }
     func setupSideBar(){
-        options =  [Option(image: UIImage(systemName: "person.fill")!,title: "Profile", segue: "Profile"),Option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "list.bullet")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
+        options =  [Option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "mappin.and.ellipse")!,title: "Location", segue: "Location"),Option(image: UIImage(systemName: "plus.app.fill")!,title: "Add Item", segue: "Post"),Option(image: UIImage(systemName: "bookmark.fill")!,title: "Bookmarked", segue: "Bookmark"),Option(image: UIImage(systemName: "chart.line.uptrend.xyaxis.circle.fill")!,title: "Statistics", segue: "Stats"),Option(image: UIImage(systemName: "arrow.turn.up.forward.iphone.fill")!,title: "About us", segue: "Aboutus"),Option(image: UIImage(systemName: "person.fill")!,title: "Settings", segue: "Profile"),Option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
     }
     func setLost(){
-        lostItems = [Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
-                     Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
+        lostItems = [Post(isItemFound: false, image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
+                     Post(isItemFound: false, image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
         postsCollectionView.reloadData()
     }
     func setFound(){
-        foundItems = [Post(image: UIImage(named: "keys")!, title: "Found", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
-                      Post(image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
+        foundItems = [Post(isItemFound: true, image: UIImage(named: "keys")!, title: "Found", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
+                      Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
         postsCollectionView.reloadData()
     }
     //MARK: Functions
@@ -124,7 +145,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SideBarCell", for: indexPath) as! SideBarCell
         cell.descriptionLabel.text = options[indexPath.row].title
-        cell.descriptionLabel.textColor = .white
+        cell.descriptionLabel.textColor = .black
         cell.iconImageView.image = options[indexPath.row].image
         return cell
     }
@@ -155,8 +176,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             post = lostItems[indexPath.item]
         }else{
             post = foundItems[indexPath.item]
+            //            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+            //            cell.foundItemButton.tintColor =  UIColor(named: "AccentColor")
+//                    cell.foundItemButton.isUserInteractionEnabled = false
         }
-      //  cell.delegate = recentPostsViewController
+        cell.delegate = self
         cell.setup(post)
         return cell
     }
@@ -179,16 +203,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
-
-
+    
+    
+}
+extension HomeViewController: PostViewControllerDelegate {
+    func didCreatePost(_ post: Post, category: String) {
+        if category == "Lost" {
+            lostItems.append(post)
+        } else if category == "Found" {
+            foundItems.append(post)
+        }
+        postsCollectionView.reloadData()
     }
- extension HomeViewController: PostViewControllerDelegate {
-                func didCreatePost(_ post: Post, category: String) {
-                    if category == "Lost" {
-                        lostItems.append(post)
-                    } else if category == "Found" {
-                        foundItems.append(post)
-                    }
-                    postsCollectionView.reloadData()
-                }
-            }
+}
+

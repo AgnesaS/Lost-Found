@@ -114,6 +114,10 @@
                         <segue destination="iJ5-oP-IrN" kind="show" identifier="Logout" id="MoK-X1-aAd"/>
                         <segue destination="8Wm-61-dq8" kind="show" identifier="Home" id="a7o-sL-E3L"/>
                         <segue destination="ek4-Bw-anN" kind="show" identifier="Post" id="4MV-DJ-Q9S"/>
+                        <segue destination="i58-nV-xtM" kind="show" identifier="Aboutus" id="UJg-Vn-Wly"/>
+                        <segue destination="f7W-ux-G8g" kind="show" identifier="Stats" id="Kwf-Li-yBS"/>
+                        <segue destination="zGX-dc-Qof" kind="show" identifier="Location" id="rx3-hQ-HZb"/>
+                        <segue destination="Es1-Kg-6yC" kind="show" identifier="Bookmark" id="5Ag-Dt-lbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGY-l3-NT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1527,6 +1531,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJL-AA-lGd">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
@@ -1547,6 +1552,11 @@
                                             <constraint firstItem="Zcp-dw-9KF" firstAttribute="leading" secondItem="x1h-r5-5RX" secondAttribute="leading" constant="30" id="59v-Yq-ZGs"/>
                                             <constraint firstItem="Zcp-dw-9KF" firstAttribute="top" secondItem="x1h-r5-5RX" secondAttribute="top" constant="60" id="Slc-Jc-l99"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qwO-zF-Uzn">
                                         <rect key="frame" x="15" y="140" width="363" height="32"/>
@@ -1568,6 +1578,11 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1587,6 +1602,11 @@
                                     <constraint firstAttribute="trailing" secondItem="x1h-r5-5RX" secondAttribute="trailing" id="wh3-Wc-fwp"/>
                                     <constraint firstItem="qwO-zF-Uzn" firstAttribute="top" secondItem="x1h-r5-5RX" secondAttribute="bottom" constant="20" id="yPU-nV-fXT"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="H9x-9L-Laf" appends="YES" id="a2m-3M-Uee"/>
                                     <outletCollection property="gestureRecognizers" destination="cEZ-v1-2o9" appends="YES" id="gpd-0x-l7z"/>
@@ -1594,13 +1614,18 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mq3-L7-CGo"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="WJL-AA-lGd" secondAttribute="bottom" id="926-4r-dhj"/>
                             <constraint firstItem="WJL-AA-lGd" firstAttribute="top" secondItem="IxS-YS-1zN" secondAttribute="top" id="a8a-xv-EdV"/>
                             <constraint firstItem="WJL-AA-lGd" firstAttribute="trailing" secondItem="mq3-L7-CGo" secondAttribute="trailing" id="heV-Vo-fMD"/>
                             <constraint firstItem="WJL-AA-lGd" firstAttribute="leading" secondItem="mq3-L7-CGo" secondAttribute="leading" id="kaS-zx-AZY"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="yrn-Ps-fPw"/>
                     <connections>
@@ -1742,7 +1767,7 @@
             <objects>
                 <viewController storyboardIdentifier="LocationDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zGX-dc-Qof" customClass="LocationDetailsViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HJ8-n4-HJg">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rd5-pR-UaK">
@@ -1756,6 +1781,7 @@
                         <viewLayoutGuide key="safeArea" id="2ee-uz-mng"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="p8Q-NO-mm4"/>
                     <connections>
                         <outlet property="theContainer" destination="rd5-pR-UaK" id="M66-xF-ZiN"/>
                     </connections>
@@ -1777,17 +1803,17 @@
             <objects>
                 <viewController storyboardIdentifier="RecentPostsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Es1-Kg-6yC" customClass="RecentPostsViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RGV-12-g2g">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90A-Ss-9qB">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vph-qL-r5D">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-sH-kkC">
-                                                <rect key="frame" x="0.0" y="252" width="393" height="600"/>
+                                                <rect key="frame" x="0.0" y="242" width="393" height="600"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AaG-5A-tgr">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
@@ -2071,11 +2097,11 @@
             <objects>
                 <viewController storyboardIdentifier="AboutUsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i58-nV-xtM" customClass="AboutUsViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yjg-Cq-rA8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUK-WD-sWj">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNs-Pj-y9C">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="804"/>
@@ -2127,6 +2153,7 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                             <constraint firstAttribute="bottom" secondItem="cUK-WD-sWj" secondAttribute="bottom" id="huP-Ke-hc1"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7fE-oO-lKg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8X-EH-8fB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2137,11 +2164,11 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
             <objects>
                 <viewController storyboardIdentifier="StatisticsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f7W-ux-G8g" customClass="StatisticsViewController" customModule="Lost_Found" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZS-sU-PC9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3FQ-9c-5Rg">
-                                <rect key="frame" x="30" y="271" width="333" height="371"/>
+                                <rect key="frame" x="30" y="212" width="333" height="454"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jbc-vn-X9m">
                                     <size key="itemSize" width="413" height="667"/>
@@ -2152,12 +2179,12 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                                 <cells/>
                             </collectionView>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-JV-bdW">
-                                <rect key="frame" x="138.66666666666666" y="642" width="115.66666666666666" height="26"/>
+                                <rect key="frame" x="138.66666666666666" y="666" width="115.66666666666666" height="26"/>
                                 <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
                                 <color key="currentPageIndicatorTintColor" red="0.38823530080000002" green="0.50588238240000005" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lost And Found Statistics, Trends And Facts 2023" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoy-l9-cbc">
-                                <rect key="frame" x="20" y="179" width="353" height="60"/>
+                                <rect key="frame" x="20" y="120" width="353" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2177,6 +2204,7 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                             <constraint firstItem="d3E-JV-bdW" firstAttribute="centerX" secondItem="edm-9I-7m8" secondAttribute="centerX" id="wKX-Js-rek"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iOi-dz-Xsz"/>
                     <connections>
                         <outlet property="pageControl" destination="d3E-JV-bdW" id="3PZ-T6-ZQ7"/>
                         <outlet property="statisticsCollectionView" destination="3FQ-9c-5Rg" id="ycj-W3-Ph6"/>

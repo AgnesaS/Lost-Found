@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -64,10 +65,24 @@
                             <constraint firstAttribute="height" constant="20" id="jp2-u1-Pjd"/>
                             <constraint firstAttribute="width" constant="20" id="otB-y7-V1l"/>
                         </constraints>
+                        <color key="tintColor" systemColor="tintColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
                         <connections>
                             <action selector="bookmarkPost:" destination="LKm-eq-Ila" eventType="touchUpInside" id="No0-JD-vgI"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fax-qf-B2l">
+                        <rect key="frame" x="180" y="165" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="EBe-Qp-x0I"/>
+                            <constraint firstAttribute="width" constant="20" id="YBZ-9W-6pJ"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
+                        <connections>
+                            <action selector="foundItemButtonPressed:" destination="LKm-eq-Ila" eventType="touchUpInside" id="0vK-Xu-R4T"/>
                         </connections>
                     </button>
                 </subviews>
@@ -78,8 +93,10 @@
                 <constraint firstItem="W1G-hn-ay8" firstAttribute="top" secondItem="UGw-8w-ZIt" secondAttribute="bottom" constant="15" id="EWW-cD-w6U"/>
                 <constraint firstItem="UGw-8w-ZIt" firstAttribute="top" secondItem="LKm-eq-Ila" secondAttribute="top" constant="10" id="Ech-4K-CGP"/>
                 <constraint firstItem="W1G-hn-ay8" firstAttribute="leading" secondItem="LKm-eq-Ila" secondAttribute="leading" constant="10" id="HyW-hj-t43"/>
+                <constraint firstItem="Fax-qf-B2l" firstAttribute="top" secondItem="Moy-Tn-gEV" secondAttribute="bottom" constant="15" id="VWG-mV-w0O"/>
                 <constraint firstItem="UGw-8w-ZIt" firstAttribute="centerX" secondItem="LKm-eq-Ila" secondAttribute="centerX" id="pus-4X-fMo"/>
                 <constraint firstItem="Moy-Tn-gEV" firstAttribute="top" secondItem="UGw-8w-ZIt" secondAttribute="bottom" constant="20" id="tND-bb-Cat"/>
+                <constraint firstAttribute="trailing" secondItem="Fax-qf-B2l" secondAttribute="trailing" constant="10" id="zlN-tT-waB"/>
             </constraints>
             <size key="customSize" width="210" height="209"/>
             <userDefinedRuntimeAttributes>
@@ -109,6 +126,7 @@
                 <outlet property="bookmarkButton" destination="Moy-Tn-gEV" id="vCs-iG-tVi"/>
                 <outlet property="dateLabel" destination="POE-8h-bKH" id="3xr-Fe-48v"/>
                 <outlet property="descriptionLabel" destination="cpP-q5-Li4" id="l3p-cO-LVf"/>
+                <outlet property="foundItemButton" destination="Fax-qf-B2l" id="WTW-ao-bO2"/>
                 <outlet property="locationLabel" destination="gzq-Px-pKg" id="WTF-td-450"/>
                 <outlet property="postImageView" destination="UGw-8w-ZIt" id="JvR-bF-xQx"/>
                 <outlet property="postTitleLabel" destination="8UF-mp-jJT" id="wTO-sG-opb"/>
@@ -118,5 +136,9 @@
     </objects>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
