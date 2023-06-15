@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol PostCellDelegate: AnyObject {
     func addLostItemToFound(at indexPath: IndexPath)
@@ -28,6 +29,15 @@ class PostCell: UICollectionViewCell {
     private var post: Post?
     
     override func awakeFromNib() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
+            if let error = error {
+                print("Error requesting notification authorization: \(error)")
+            } else if granted {
+                print("Notification authorization granted")
+            } else {
+                print("Notification authorization denied")
+            }
+        }
         super.awakeFromNib()
     }
     //MARK: Functions
@@ -44,7 +54,7 @@ class PostCell: UICollectionViewCell {
     @IBAction func bookmarkPost(_ sender: Any) {
         print("Pressed bookmark")
         if let post = post {
-       //     delegate?.bookmarkPost(post)
+            //     delegate?.bookmarkPost(post)
         }
         toggleBookmarkState()
     }
@@ -62,25 +72,51 @@ class PostCell: UICollectionViewCell {
         print("presseed checkmark")
         
         guard var post = post else { return }
-           post.isItemFound.toggle()
-           toggleCheckmarkState()
+        post.isItemFound.toggle()
+        toggleCheckmarkState()
         
         if let indexPath = delegate?.collectionViewIndexPath(for: self) {
-                delegate?.addLostItemToFound(at: indexPath)
-            }
-            toggleCheckmarkState()
+            delegate?.addLostItemToFound(at: indexPath)
+        }
+        toggleCheckmarkState()
     }
     private func toggleCheckmarkState() {
         guard let post = post else { return }
-          
+        
+        displayItemFoundNotification()
+        
         if post.isItemFound {
-              foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-              foundItemButton.tintColor = UIColor(named: "AccentColor")
+            
+            foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+            foundItemButton.tintColor = UIColor(named: "AccentColor")
+            
+          
+            
             //foundItemButton.isUserInteractionEnabled = false
-          } else {
-              foundItemButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-              foundItemButton.tintColor = .tintColor
-          }
+        } else {
+            foundItemButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            foundItemButton.tintColor = .tintColor
+        }
+        
+    }
+        private func displayItemFoundNotification() {
+             let content = UNMutableNotificationContent()
+             content.title = "Item Found"
+             content.body = "Your item has been found"
+             content.badge = 1
+             content.sound = .default
+
+             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+
+             let request = UNNotificationRequest(identifier: "ItemFoundNotification", content: content, trigger: trigger)
+
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error sending notification: \(error)")
+                } else {
+                    print("Notification sent successfully")
+                }
+            }
     }
     
 }
