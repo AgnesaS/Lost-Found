@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGY-l3-NT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-782" y="673"/>
+            <point key="canvasLocation" x="-30" y="670"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="mZL-sj-Yxm">
@@ -1395,6 +1395,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-YH-C9R">
                                                                 <rect key="frame" x="284" y="0.0" width="51" height="16"/>
+                                                                <connections>
+                                                                    <action selector="notificationONOFF:" destination="8UA-La-G89" eventType="valueChanged" id="DR1-El-e2w"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -1649,25 +1652,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="760" y="673"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="P7X-85-eLE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JHo-Rl-dh2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="menucard" catalog="system" selectedImage="menucard.fill" id="w8i-4y-tPN"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tis-7N-eWh">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8Wm-61-dq8" kind="relationship" relationship="rootViewController" id="6Sb-CP-FmW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CQK-bg-HPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="44" y="673"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wN7-cb-k6g">
@@ -2315,9 +2299,6 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
             <point key="canvasLocation" x="760" y="1373"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="a7o-sL-E3L"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="ArrowForward" width="9.3333330154418945" height="16"/>
         <image name="b1" width="414" height="896"/>
@@ -2334,8 +2315,6 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
         <image name="logout1" width="24" height="24"/>
         <image name="loogo" width="500" height="500"/>
         <image name="mapBackground" width="375" height="667"/>
-        <image name="menucard" catalog="system" width="108" height="128"/>
-        <image name="menucard.fill" catalog="system" width="105" height="128"/>
         <image name="plusIcon" width="50" height="50"/>
         <image name="tagButton" width="76" height="76"/>
         <namedColor name="light&amp;Dark">

@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, PostCellDelegate{
     var options: [Option] = []
     
     override func viewDidLoad() {
+        postsCollectionView.isUserInteractionEnabled = true
         super.viewDidLoad()
         setupTableView()
         setupCollectionView()
@@ -189,18 +190,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: size, height: size)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("didselect method")
         if collectionView == postsCollectionView {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let postDetailsVC = storyboard.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController {
-                var selectedItem: Post
-                if selectedSegmentIndex == 0 {
-                    selectedItem = lostItems[indexPath.item]
-                } else {
-                    selectedItem = foundItems[indexPath.item]
-                }
-                postDetailsVC.item = selectedItem
-                navigationController?.pushViewController(postDetailsVC, animated: true)
+            var selectedItem: Post
+            if selectedSegmentIndex == 0 {
+                selectedItem = lostItems[indexPath.item]
+            } else {
+                selectedItem = foundItems[indexPath.item]
             }
+            
+            let storyboard = (storyboard?.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController)!
+            navigationController?.pushViewController(storyboard, animated: true)
         }
     }
     

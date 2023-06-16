@@ -23,12 +23,33 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var turnOnOffNotificationsSwitch: UISwitch!
+    
     var forgotPasswordViewController: ForgotPasswordViewController?
 
     var imagePicker: UIImagePickerController?
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  turnOnOffNotificationsSwitch.addTarget(self, action: #selector(turnOnOffNotificationsChanged(_:)), for: .valueChanged)
         setupImagePicker()
+  
+    }
+    @objc private func turnOnOffNotificationsChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            // User turned on notifications, request authorization
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
+                if let error = error {
+                    print("Error requesting notification authorization: \(error)")
+                } else if granted {
+                    print("Notification authorization granted")
+                } else {
+                    print("Notification authorization denied")
+                }
+            }
+        } else {
+            // User turned off notifications, remove any pending notifications
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
     }
     //MARK: Functions
     func setupImagePicker(){
@@ -84,6 +105,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
 
         self.present(controller, animated: true, completion: nil)
     }
+    
+
     
     @IBAction func statisticsButtonPressed(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(identifier: "StatisticsViewController") as!StatisticsViewController

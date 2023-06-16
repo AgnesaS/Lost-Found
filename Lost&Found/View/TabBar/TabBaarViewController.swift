@@ -39,7 +39,7 @@ class TabBaarViewController: SOTabBarController {
 }
 extension TabBaarViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
-        print(viewController.tabBarItem.title ?? "")
+       // print(viewController.tabBarItem.title ?? "")
     }
 }
 
