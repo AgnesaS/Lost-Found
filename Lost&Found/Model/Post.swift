@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 
 struct Post{
-    var isItemFound: Bool = false
+    var id: Int
     let image: UIImage
     let title: String
     let location: String
   //  let descriptionPost: String
     let date: String
     let postDescription: String
+    var isItemFound: Bool? = false
+    var bookMarked: Bool? = false
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol PostViewControllerDelegate: AnyObject {
     func didCreatePost(_ post: Post, category: String)
@@ -121,7 +122,7 @@ class PostViewController: UIViewController {
             let location = locationTextField.text ?? ""
             let date = dateTextField.text ?? ""
             
-            let post = Post(isItemFound: false, image: UIImage(named: "1")!, title: title, location: location, date: date, postDescription: description)
+            let post = Post(id: 1, image: UIImage(named: "keys")!, title: "Lost", location: "Prishtina", date: "22.03.2023", postDescription: "This item was lost in Prishtina")
             
             delegate?.didCreatePost(post, category: category)
             

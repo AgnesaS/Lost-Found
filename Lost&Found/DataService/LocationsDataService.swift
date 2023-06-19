@@ -22,7 +22,8 @@ class LocationsDataService {
                 "keys",
                 "rome-colosseum-3",
             ],
-            link: "https://en.wikipedia.org/wiki/Colosseum"),
+            link: "https://en.wikipedia.org/wiki/Colosseum",
+            isItemFound: false),
         Location(
             name: "Newborn",
             cityName: "Prishtina",
@@ -33,7 +34,8 @@ class LocationsDataService {
                 "rome-pantheon-2",
                 "rome-pantheon-3",
             ],
-            link: "https://en.wikipedia.org/wiki/Pantheon,_Rome"),
+            link: "https://en.wikipedia.org/wiki/Pantheon,_Rome",
+            isItemFound: false),
         //42.675031, 21.215469 parku i germise
         Location(
             name: "Parku i Germise",
@@ -45,7 +47,7 @@ class LocationsDataService {
                 "rome-trevifountain-2",
                 "rome-trevifountain-3",
             ],
-            link: "https://en.wikipedia.org/wiki/Trevi_Fountain"),
+            link: "https://en.wikipedia.org/wiki/Trevi_Fountain", isItemFound: false),
         Location(
             
             name: "Stadiumi 'Fadil Vokrri'",
@@ -56,7 +58,7 @@ class LocationsDataService {
                 "wallet",
                 "paris-eiffeltower-2",
             ],
-            link: "https://en.wikipedia.org/wiki/Eiffel_Tower"),
+            link: "https://en.wikipedia.org/wiki/Eiffel_Tower", isItemFound: false),
         Location(
             name: "Stacioni i autobusave",
             cityName: "Prishtine",
@@ -67,7 +69,7 @@ class LocationsDataService {
                 "paris-louvre-2",
                 "paris-louvre-3",
             ],
-            link: "https://en.wikipedia.org/wiki/Louvre"),
+            link: "https://en.wikipedia.org/wiki/Louvre", isItemFound: false),
         Location(
             name: "Rruga 'Motrat Qiriazi'",
             cityName: "Prishtine",
@@ -78,7 +80,7 @@ class LocationsDataService {
                 "paris-louvre-2",
                 "paris-louvre-3",
             ],
-            link: "https://en.wikipedia.org/wiki/Louvre"),
+            link: "https://en.wikipedia.org/wiki/Louvre", isItemFound: false),
     ]
     
 }

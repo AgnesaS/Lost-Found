@@ -23,6 +23,7 @@ class PostDetailsViewController: UIViewController {
         descriptionLabel.text = item?.postDescription
         locationLabel.text = item?.location
         dateAndTimeLabel.text = item?.date
+    //    dateAndTimeLabel.text = item?.imageNames
     }
     
 

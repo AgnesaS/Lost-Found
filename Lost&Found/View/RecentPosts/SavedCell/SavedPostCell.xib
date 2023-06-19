@@ -25,28 +25,28 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eH3-5I-A4a">
-                        <rect key="frame" x="10" y="125" width="150" height="76"/>
+                        <rect key="frame" x="10" y="125" width="37.333333333333336" height="76"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmR-kd-wWl">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziP-6I-zWl">
-                                <rect key="frame" x="0.0" y="23" width="150" height="14.333333333333336"/>
+                                <rect key="frame" x="0.0" y="23" width="37.333333333333336" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK9-MT-BC2">
-                                <rect key="frame" x="0.0" y="42.333333333333343" width="150" height="14.333333333333336"/>
+                                <rect key="frame" x="0.0" y="42.333333333333343" width="37.333333333333336" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PD-Gg-bsY">
-                                <rect key="frame" x="0.0" y="61.666666666666664" width="150" height="14.333333333333336"/>
+                                <rect key="frame" x="0.0" y="61.666666666666664" width="37.333333333333336" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,7 +71,6 @@
                 <constraint firstItem="CEd-x0-Ocx" firstAttribute="centerX" secondItem="rLC-uz-YEI" secondAttribute="centerX" id="5Ng-Ih-qdV"/>
                 <constraint firstItem="Jgg-ay-i37" firstAttribute="top" secondItem="CEd-x0-Ocx" secondAttribute="bottom" constant="20" id="Uzr-6D-25N"/>
                 <constraint firstItem="eH3-5I-A4a" firstAttribute="top" secondItem="CEd-x0-Ocx" secondAttribute="bottom" constant="15" id="osI-Ud-VCT"/>
-                <constraint firstAttribute="trailing" secondItem="eH3-5I-A4a" secondAttribute="trailing" constant="50" id="ppu-y0-Sfe"/>
                 <constraint firstAttribute="trailing" secondItem="Jgg-ay-i37" secondAttribute="trailing" constant="10" id="sYg-lJ-42s"/>
             </constraints>
             <size key="customSize" width="210" height="209"/>

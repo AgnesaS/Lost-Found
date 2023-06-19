@@ -7,7 +7,15 @@
 
 import UIKit
 
-class RecentPostsViewController: UIViewController{
+class RecentPostsViewController: UIViewController, HomeViewControllerDelegate{
+    func didUpdateBookmarkedPosts(_ bookmarkedPosts: [Post]) {
+        self.bookmarkedPosts = bookmarkedPosts
+        recentsPostCollectionView.reloadData()
+        print("didupdatebookmarkedposts yipeee")
+        print("RecentPostsViewController - didUpdateBookmarkedPosts() called")
+        print("RecentPostsViewController - bookmarkedPosts: \(bookmarkedPosts)")
+    }
+    
 //    func bookmarkPost(_ post: Post) {
 //        bookmarkedPosts.append(post)
 //        if savedAndPostedSegmentedControl.selectedSegmentIndex == 0 {
@@ -22,10 +30,23 @@ class RecentPostsViewController: UIViewController{
     var justPostedPosts: [Post] = []
     var selectedSegmentIndex = 0
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Perform your refresh operation here
+        refresh()
+    }
+    func refresh() {
+        assignPosts()
+        recentsPostCollectionView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        setDetails()
+      //  setDetails()
+    }
+    func assignPosts() {
+        bookmarkedPosts = HomeViewController.instance.bookmarkedPosts
     }
     func setupCollectionView(){
         recentsPostCollectionView.delegate = self

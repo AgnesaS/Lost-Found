@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class IntroViewController: UIViewController {
     //MARK: IBOutlets
@@ -27,14 +28,13 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "HasLaunchedBefore")
-               
-               if hasLaunchedBefore {
-                   // Intro screen has been shown before, navigate to the next screen
-              //     navigateToHomeScreen()
-               } else {
-                   // First time launch, show the intro screen
-                   UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
-               }
+        
+        if hasLaunchedBefore {
+            navigateToNextScreen()
+        } else {
+
+        }
+        
         slidesCollectionView.dataSource = self
         slidesCollectionView.delegate = self
         slidesCollectionView.register(UINib(nibName: "SlideCell", bundle: nil), forCellWithReuseIdentifier: "SlideCell")
@@ -45,13 +45,32 @@ class IntroViewController: UIViewController {
         pageControll.numberOfPages = slides.count
         
     }
+    func navigateToNextScreen() {
+        if Auth.auth().currentUser != nil {
+            navigateToHomeScreen()
+        } else {
+            navigateToLoginScreen()
+        }
+    }
+    
+    func navigateToHomeScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBaarViewController")
+        UIApplication.shared.windows.first?.rootViewController = homeViewController
+    }
+    
+    func navigateToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        UIApplication.shared.windows.first?.rootViewController = loginViewController
+    }
     //MARK: IBActions
     @IBAction func nextButtonPressed(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore") // Update the flag indicating the app has been laun
+//            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore") // Update the flag indicating the app has been launched
             present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1

@@ -15,6 +15,7 @@ struct Location: Identifiable, Equatable{
     let description: String
     let imageNames: [String]
     let link : String
+    let isItemFound: Bool
     
     var id: String{
         //name = "Colesoum"

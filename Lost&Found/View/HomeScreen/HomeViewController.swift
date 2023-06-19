@@ -6,33 +6,18 @@
 //
 
 import UIKit
+import CoreLocation
 
-class HomeViewController: UIViewController, PostCellDelegate{
-    func collectionViewIndexPath(for cell: UICollectionViewCell) -> IndexPath? {
-        
-        if let indexPath = postsCollectionView.indexPath(for: cell) {
-            return indexPath
-        }
-        return nil
-    }
+protocol HomeViewControllerDelegate: AnyObject {
+    func didUpdateBookmarkedPosts(_ bookmarkedPosts: [Post])
+    //func getBookmarkedPosts() -> [Post]
+}
+
+class HomeViewController: UIViewController{
     
+    private(set) static var instance: HomeViewController!
     
-    func addLostItemToFound(at indexPath: IndexPath) {
-        if selectedSegmentIndex == 0 && indexPath.item < lostItems.count {
-               let post = lostItems[indexPath.item]
-               lostItems.remove(at: indexPath.item)
-               foundItems.append(post)
-           }
-           postsCollectionView.reloadData()
-    }
-    
-    
-    
-    
-    //    func bookmarkPost(_ post: Post) {
-    //        recentPostsViewController?.bookmarkedPosts.append(post)
-    //    }
-    
+
     //MARK: IBOutles
     @IBOutlet weak var postsCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
@@ -41,6 +26,7 @@ class HomeViewController: UIViewController, PostCellDelegate{
     @IBOutlet var menuTableView: UITableView!
     
     //MARK: Proporties
+    let dataService = LocationsDataService()
     var recentPostsViewController: RecentPostsViewController?
     var bookmarkedPosts: [Post] = []
     var postViewController = PostViewController()
@@ -53,17 +39,24 @@ class HomeViewController: UIViewController, PostCellDelegate{
     var home = CGAffineTransform()
     var options: [Option] = []
     
+    weak var delegate: HomeViewControllerDelegate? {
+        didSet {
+            print("HomeViewController - delegate didSet: \(String(describing: delegate))")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        HomeViewController.instance = self
         setupTableView()
         setupCollectionView()
         setDetails()
         home = self.containerView.transform
-        postViewController.delegate = self
+     
         setupSideBar()
-        //        recentPostsViewController = storyboard?.instantiateViewController(withIdentifier: "RecentPostsViewController") as? RecentPostsViewController
-        //        recentPostsViewController.bookmarkedPosts = bookmarkedPosts
+        //recentPostsViewController.bookmarkedPosts = bookmarkedPosts
     }
+    //MARK: Functions
     func setupTableView(){
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -79,13 +72,19 @@ class HomeViewController: UIViewController, PostCellDelegate{
         options =  [Option(image: UIImage(systemName: "house.fill")!,title: "Home", segue: "Home"),Option(image: UIImage(systemName: "mappin.and.ellipse")!,title: "Location", segue: "Location"),Option(image: UIImage(systemName: "plus.app.fill")!,title: "Add Item", segue: "Post"),Option(image: UIImage(systemName: "bookmark.fill")!,title: "Bookmarked", segue: "Bookmark"),Option(image: UIImage(systemName: "chart.line.uptrend.xyaxis.circle.fill")!,title: "Statistics", segue: "Stats"),Option(image: UIImage(systemName: "arrow.turn.up.forward.iphone.fill")!,title: "About us", segue: "Aboutus"),Option(image: UIImage(systemName: "person.fill")!,title: "Settings", segue: "Profile"),Option(image: UIImage(systemName: "return.right")!,title: "Logout", segue: "Logout")]
     }
     func setLost(){
-        lostItems = [Post(isItemFound: false, image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
-                     Post(isItemFound: false, image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: false,image: UIImage(named: "wallet")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
+        
+        let item1 = Post(id: 1, image: UIImage(named: "wallet")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
+        let item2 = Post(id: 2, image: UIImage(named: "wallet")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
+        lostItems = [item1, item2]
         postsCollectionView.reloadData()
     }
     func setFound(){
-        foundItems = [Post(isItemFound: true, image: UIImage(named: "keys")!, title: "Found", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),
-                      Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda"),Post(isItemFound: true,image: UIImage(named: "keys")!, title: "Wallet", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")]
+        let item1 = Post(id: 3, image: UIImage(named: "keys")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
+        let item2 = Post(id: 4, image: UIImage(named: "keys")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
+        let item3 = Post(id: 5, image: UIImage(named: "keys")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
+        let item4 = Post(id: 6, image: UIImage(named: "keys")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
+        foundItems = [item1, item2, item3, item4]
+        
         postsCollectionView.reloadData()
     }
     //MARK: Functions
@@ -138,6 +137,7 @@ class HomeViewController: UIViewController, PostCellDelegate{
         setDetails()
     }
 }
+//MARK: TableView -> SideBarCell
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
@@ -160,6 +160,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+//MARK: CollectionView -> PostCell
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if selectedSegmentIndex == 0 {
@@ -176,11 +177,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             post = lostItems[indexPath.item]
         }else{
             post = foundItems[indexPath.item]
-            //            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-            //            cell.foundItemButton.tintColor =  UIColor(named: "AccentColor")
-//                    cell.foundItemButton.isUserInteractionEnabled = false
+        //    cell.foundItemButton.isUserInteractionEnabled = false
+//            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+//            cell.foundItemButton.tintColor = UIColor(named: "AccentColor")
         }
         cell.delegate = self
+       
         cell.setup(post)
         return cell
     }
@@ -189,22 +191,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: size, height: size)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("didselect method")
         if collectionView == postsCollectionView {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let postDetailsVC = storyboard.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController {
-                var selectedItem: Post
-                if selectedSegmentIndex == 0 {
-                    selectedItem = lostItems[indexPath.item]
-                } else {
-                    selectedItem = foundItems[indexPath.item]
-                }
-                postDetailsVC.item = selectedItem
-                navigationController?.pushViewController(postDetailsVC, animated: true)
+            var selectedItem: Post
+            if selectedSegmentIndex == 0 {
+                selectedItem = lostItems[indexPath.item]
+            } else {
+                selectedItem = foundItems[indexPath.item]
             }
+            
+            let storyboard = storyboard?.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController
+            storyboard?.item = selectedItem
+            //  storyboard?.modalPresentationStyle = .fullScreen
+            storyboard?.modalTransitionStyle = .flipHorizontal
+            self.present(storyboard!, animated: true, completion: nil)
         }
     }
-    
-    
 }
 extension HomeViewController: PostViewControllerDelegate {
     func didCreatePost(_ post: Post, category: String) {
@@ -217,3 +219,57 @@ extension HomeViewController: PostViewControllerDelegate {
     }
 }
 
+extension HomeViewController: PostCellDelegate {
+    func collectionViewIndexPath(for cell: UICollectionViewCell) -> IndexPath? {
+        if let indexPath = postsCollectionView.indexPath(for: cell) {
+            return indexPath
+        }
+        return nil
+    }
+    func addLostItemToFound(at indexPath: IndexPath) {
+        if selectedSegmentIndex == 0 && indexPath.item < lostItems.count {
+            print("item is added to found")
+            let post = lostItems[indexPath.item]
+            lostItems.remove(at: indexPath.item)
+            foundItems.append(post)
+        }
+        postsCollectionView.reloadData()
+    }
+    
+    func bookmarkPost(post: Post) {
+        if let index = lostItems.firstIndex(where: { $0.id == post.id }) {
+            lostItems[index].bookMarked = !lostItems[index].bookMarked!
+
+            if lostItems[index].bookMarked! {
+                let isAlreadyBookmarked = bookmarkedPosts.contains { $0.id == lostItems[index].id }
+                if !isAlreadyBookmarked {
+                    bookmarkedPosts.append(lostItems[index])
+                    delegate?.didUpdateBookmarkedPosts(bookmarkedPosts)
+                }
+            } else {
+                if let bookmarkIndex = bookmarkedPosts.firstIndex(where: { $0.id == lostItems[index].id }) {
+                    bookmarkedPosts.remove(at: bookmarkIndex)
+                    delegate?.didUpdateBookmarkedPosts(bookmarkedPosts)
+                }
+            }
+        } else if let index = foundItems.firstIndex(where: { $0.id == post.id }) {
+            foundItems[index].bookMarked = !foundItems[index].bookMarked!
+
+            if foundItems[index].bookMarked! {
+                let isAlreadyBookmarked = bookmarkedPosts.contains { $0.id == foundItems[index].id }
+                if !isAlreadyBookmarked {
+                    bookmarkedPosts.append(foundItems[index])
+                    delegate?.didUpdateBookmarkedPosts(bookmarkedPosts)
+                }
+            } else {
+                if let bookmarkIndex = bookmarkedPosts.firstIndex(where: { $0.id == foundItems[index].id }) {
+                    bookmarkedPosts.remove(at: bookmarkIndex)
+                    delegate?.didUpdateBookmarkedPosts(bookmarkedPosts)
+                }
+            }
+        }
+
+        postsCollectionView.reloadData()
+        print("bookmarkedPosts: \(bookmarkedPosts)")
+    }
+}

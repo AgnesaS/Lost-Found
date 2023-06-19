@@ -89,6 +89,7 @@
                             <constraint firstItem="SZ4-wV-8iD" firstAttribute="bottom" secondItem="N7Q-jJ-HxV" secondAttribute="bottom" constant="40" id="uUf-7j-I3G"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ln1-se-KVc"/>
                     <connections>
                         <outlet property="nextButton" destination="N7Q-jJ-HxV" id="Y7F-70-ec4"/>
                         <outlet property="pageControll" destination="gpF-mN-nXB" id="oNl-ad-3Wn"/>
@@ -97,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ka7-yO-GSt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189" y="-35"/>
+            <point key="canvasLocation" x="1112.2137404580153" y="-35.211267605633807"/>
         </scene>
         <!--Tab Baar View Controller-->
         <scene sceneID="yw8-vn-2NZ">
@@ -122,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGY-l3-NT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-782" y="673"/>
+            <point key="canvasLocation" x="-30" y="670"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="mZL-sj-Yxm">
@@ -539,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGQ-sq-cx4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913.74045801526711" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="1837.4045801526718" y="-35.211267605633807"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="XjD-QN-jgT">
@@ -981,7 +982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0g-0T-rfu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623.6641221374045" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="2547.3282442748091" y="-35.211267605633807"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="o69-wB-Rw4">
@@ -1133,7 +1134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOx-AW-GPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2323" y="-35"/>
+            <point key="canvasLocation" x="3246.5648854961833" y="-35.211267605633807"/>
         </scene>
         <!--Settings-->
         <scene sceneID="xAW-c4-0rm">
@@ -1395,6 +1396,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-YH-C9R">
                                                                 <rect key="frame" x="284" y="0.0" width="51" height="16"/>
+                                                                <connections>
+                                                                    <action selector="notificationONOFF:" destination="8UA-La-G89" eventType="valueChanged" id="DR1-El-e2w"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -1642,32 +1646,13 @@
                         <action selector="showMenu:" destination="8Wm-61-dq8" id="w21-hm-z2t"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <tapGestureRecognizer id="cEZ-v1-2o9">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="cEZ-v1-2o9">
                     <connections>
                         <action selector="hideMenu:" destination="8Wm-61-dq8" id="Wyv-db-4mb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="760" y="673"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="P7X-85-eLE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JHo-Rl-dh2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="menucard" catalog="system" selectedImage="menucard.fill" id="w8i-4y-tPN"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tis-7N-eWh">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8Wm-61-dq8" kind="relationship" relationship="rootViewController" id="6Sb-CP-FmW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CQK-bg-HPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="44" y="673"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wN7-cb-k6g">
@@ -2229,36 +2214,36 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6bA-ng-eEM">
-                                                <rect key="frame" x="30" y="120" width="333" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="YMw-PP-hOn"/>
+                                                    <constraint firstAttribute="height" constant="450" id="YMw-PP-hOn"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KBe-du-1Ha">
-                                                <rect key="frame" x="30" y="340" width="333" height="362"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KBe-du-1Ha">
+                                                <rect key="frame" x="30" y="450" width="333" height="382"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-wt-eg2">
-                                                        <rect key="frame" x="137.33333333333334" y="0.0" width="58.666666666666657" height="90.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3T-6F-m7T">
-                                                        <rect key="frame" x="146" y="90.666666666666686" width="41.333333333333343" height="90.333333333333314"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="105.33333333333333"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEe-Fg-alN">
-                                                        <rect key="frame" x="146" y="181" width="41.333333333333343" height="90.666666666666686"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
+                                                        <rect key="frame" x="0.0" y="115.33333333333337" width="48" height="70"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7p-HA-BMc">
-                                                        <rect key="frame" x="146" y="271.66666666666663" width="41.333333333333343" height="90.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3T-6F-m7T">
+                                                        <rect key="frame" x="0.0" y="195.33333333333337" width="41.333333333333336" height="59.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/06/2023" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7p-HA-BMc">
+                                                        <rect key="frame" x="0.0" y="265" width="90" height="117"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -2267,12 +2252,12 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="KBe-du-1Ha" firstAttribute="leading" secondItem="zwN-Ew-8xT" secondAttribute="leading" constant="30" id="6aA-aX-xS4"/>
-                                            <constraint firstAttribute="trailing" secondItem="6bA-ng-eEM" secondAttribute="trailing" constant="30" id="HEp-yt-Kee"/>
-                                            <constraint firstItem="KBe-du-1Ha" firstAttribute="top" secondItem="6bA-ng-eEM" secondAttribute="bottom" constant="20" id="M1i-Cw-Wq2"/>
-                                            <constraint firstItem="6bA-ng-eEM" firstAttribute="top" secondItem="zwN-Ew-8xT" secondAttribute="top" constant="120" id="a3X-lA-lLU"/>
+                                            <constraint firstAttribute="trailing" secondItem="6bA-ng-eEM" secondAttribute="trailing" id="HEp-yt-Kee"/>
+                                            <constraint firstItem="KBe-du-1Ha" firstAttribute="top" secondItem="6bA-ng-eEM" secondAttribute="bottom" id="M1i-Cw-Wq2"/>
+                                            <constraint firstAttribute="top" secondItem="6bA-ng-eEM" secondAttribute="top" id="a3X-lA-lLU"/>
                                             <constraint firstAttribute="trailing" secondItem="KBe-du-1Ha" secondAttribute="trailing" constant="30" id="gPl-0p-aQX"/>
-                                            <constraint firstItem="6bA-ng-eEM" firstAttribute="leading" secondItem="zwN-Ew-8xT" secondAttribute="leading" constant="30" id="hs4-CH-mRa"/>
-                                            <constraint firstAttribute="bottom" secondItem="KBe-du-1Ha" secondAttribute="bottom" constant="150" id="xDk-0M-mp9"/>
+                                            <constraint firstItem="6bA-ng-eEM" firstAttribute="leading" secondItem="zwN-Ew-8xT" secondAttribute="leading" id="hs4-CH-mRa"/>
+                                            <constraint firstAttribute="bottom" secondItem="KBe-du-1Ha" secondAttribute="bottom" constant="20" id="xDk-0M-mp9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2282,7 +2267,7 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
                                     <constraint firstItem="OhQ-xW-Ijn" firstAttribute="bottom" secondItem="zwN-Ew-8xT" secondAttribute="bottom" id="YNx-cL-5ue"/>
                                     <constraint firstAttribute="trailing" secondItem="zwN-Ew-8xT" secondAttribute="trailing" id="ZyA-3i-woQ"/>
                                     <constraint firstItem="OhQ-xW-Ijn" firstAttribute="trailing" secondItem="zwN-Ew-8xT" secondAttribute="trailing" id="fkm-hP-DBk"/>
-                                    <constraint firstItem="zwN-Ew-8xT" firstAttribute="top" secondItem="OhQ-xW-Ijn" secondAttribute="top" id="ifV-Z3-ROq"/>
+                                    <constraint firstItem="zwN-Ew-8xT" firstAttribute="top" secondItem="5Hg-cp-fYy" secondAttribute="top" id="ifV-Z3-ROq"/>
                                     <constraint firstItem="zwN-Ew-8xT" firstAttribute="centerX" secondItem="5Hg-cp-fYy" secondAttribute="centerX" id="jGQ-gV-KdC"/>
                                     <constraint firstItem="zwN-Ew-8xT" firstAttribute="top" secondItem="5Hg-cp-fYy" secondAttribute="top" id="pr8-QO-zmq"/>
                                     <constraint firstAttribute="bottom" secondItem="zwN-Ew-8xT" secondAttribute="bottom" id="xI5-Vn-sJV"/>
@@ -2315,9 +2300,6 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
             <point key="canvasLocation" x="760" y="1373"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="a7o-sL-E3L"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="ArrowForward" width="9.3333330154418945" height="16"/>
         <image name="b1" width="414" height="896"/>
@@ -2334,8 +2316,6 @@ Welcome to the Lost and Found App, where reuniting lost items with their owners 
         <image name="logout1" width="24" height="24"/>
         <image name="loogo" width="500" height="500"/>
         <image name="mapBackground" width="375" height="667"/>
-        <image name="menucard" catalog="system" width="108" height="128"/>
-        <image name="menucard.fill" catalog="system" width="105" height="128"/>
         <image name="plusIcon" width="50" height="50"/>
         <image name="tagButton" width="76" height="76"/>
         <namedColor name="light&amp;Dark">
