@@ -29,8 +29,8 @@ The project is developed using Xcode(Version 14.3) as an IDE and Swift as a prog
 
 # SCREENSHOTS
  ## ⚡Splash Screen
- <img src="https://github.com/AgnesaS/Lost-Found/assets/44116298/1ef49d4b-1daf-474a-8606-05d26be2a19f " width="300" height="600"/>      
- <img src=" https://github.com/AgnesaS/Lost-Found/assets/44116298/b9c4b6a1-0669-4670-8c50-256160830fbe" width="300" height="600"/>
+ <img src="https://github.com/AgnesaS/Lost-Found/assets/44116298/1ef49d4b-1daf-474a-8606-05d26be2a19f " width="300" height="600"/>  
+ <img src="https://github.com/AgnesaS/Lost-Found/assets/44116298/525543a5-f6e4-43c1-ab83-bf01268bb5a8" width="300" height="600"/>
     
  
 
