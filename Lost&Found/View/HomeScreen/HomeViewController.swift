@@ -10,7 +10,6 @@ import CoreLocation
 
 protocol HomeViewControllerDelegate: AnyObject {
     func didUpdateBookmarkedPosts(_ bookmarkedPosts: [Post])
-    //func getBookmarkedPosts() -> [Post]
 }
 
 class HomeViewController: UIViewController{
@@ -38,7 +37,8 @@ class HomeViewController: UIViewController{
     var selectedSegmentIndex = 0
     var home = CGAffineTransform()
     var options: [Option] = []
-    
+    var firstSegmentChange: Bool = false
+    var newlyFoundPost: Post?
     weak var delegate: HomeViewControllerDelegate? {
         didSet {
             print("HomeViewController - delegate didSet: \(String(describing: delegate))")
@@ -46,6 +46,7 @@ class HomeViewController: UIViewController{
     }
     
     override func viewDidLoad() {
+        postsCollectionView.isUserInteractionEnabled = true
         super.viewDidLoad()
         HomeViewController.instance = self
         setupTableView()
@@ -54,9 +55,35 @@ class HomeViewController: UIViewController{
         home = self.containerView.transform
      
         setupSideBar()
+        addNotificationObserver()
         //recentPostsViewController.bookmarkedPosts = bookmarkedPosts
     }
     //MARK: Functions
+    func addNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadListByCategory(notification:)), name: Notification.Name("refreshHome"), object: nil)
+
+    }
+    
+    @objc func reloadListByCategory(notification: Notification) {
+        print("neloadListByCategory userInfo = \(notification.userInfo)")
+        if let category = notification.userInfo?["category"] as? String {
+            print("neloadListByCategory cat = \(category)")
+            if let post = notification.userInfo?["post"] as? Post {
+                print("neloadListByCategory  pst = \(post)")
+                if category == "Lost" {
+                    lostItems.append(post)
+                } else {
+                    foundItems.append(post)
+                }
+                print("lostItems count = \(lostItems.count)")
+                print("foundItms count = \(foundItems.count)")
+                postsCollectionView.reloadData()
+            }
+
+        }
+    }
+
+    
     func setupTableView(){
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -73,16 +100,20 @@ class HomeViewController: UIViewController{
     }
     func setLost(){
         
-        let item1 = Post(id: 1, image: UIImage(named: "wallet")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
-        let item2 = Post(id: 2, image: UIImage(named: "wallet")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
-        lostItems = [item1, item2]
+        let item1 = Post(id: 1, image: UIImage(named: "item_lost1")!, title: "Wallet", location: "Royal Mall",date: "10/07/2023",postOwner: "Posted by: Filan Fisteku" ,postDescription: "The lost wallet was a weathered companion, its leather worn and faded, revealing traces of past adventures. Inside, it held a collection of essential cards, faded photographs, and fragments of memories yearning to be found once more.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item2 = Post(id: 2, image: UIImage(named: "item_lost2")!, title: "Airpods", location: "Prishtina Mall",date: "05/07/2023",postOwner: "Posted by: Filan Fisteku" ,postDescription: "A pair of AirPods, wireless earbuds in a sleek white case. The AirPods offer seamless connectivity, exceptional sound quality, and are of sentimental value. Generous reward awaits their safe return. If found, please contact", contactInfo: "filan_fisteku2023@gmail.com")
+        let item3 = Post(id: 3, image: UIImage(named: "item_lost3")!, title: "Bag", location: "St. Fehmi Agani",date: "23/05/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "A bag of significant importance, inadvertently left behind in the city. The bag holds personal belongings and sentimental items. A heartfelt reward awaits its safe return. If found, kindly contact me.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item4 = Post(id: 4, image: UIImage(named: "item_lost4")!, title: "Apple Watch", location: "Bill Clinton Boulevard",date: "16/06/2023",postOwner: "Posted by: Filan Fisteku", postDescription: " An Apple Watch, a sleek and stylish wearable device. It is a silver Apple Watch Series 5 with a black sport band. The watch features a custom engraving on the back, adding a touch of personalization. It holds both functional and sentimental value. A generous reward awaits its safe return.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item5 = Post(id: 5, image: UIImage(named: "item_lost5")!, title: "Car Keys", location: "St. Nënë Tereza",date: "01/04/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "A set of car keys belonging to a Honda Civic. They are of great significance for daily mobility. A reward is available for their safe return.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item6 = Post(id: 6, image: UIImage(named: "item_lost6")!, title: "Ring", location: "St. Agim Ramadani ",date: "13/04/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "A precious ring of sentimental value. The ring is a gold band adorned with a sparkling diamond. It holds deep personal significance and cherished memories. A heartfelt reward is offered for its safe return. I", contactInfo: "filan_fisteku2023@gmail.com")
+        lostItems = [item1, item2, item3, item4, item5, item6]
         postsCollectionView.reloadData()
     }
     func setFound(){
-        let item1 = Post(id: 3, image: UIImage(named: "keys")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
-        let item2 = Post(id: 4, image: UIImage(named: "keys")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
-        let item3 = Post(id: 5, image: UIImage(named: "keys")!, title: "Wallet 1", location: "Prishtina",date: "22/10/2023", postDescription: "sdhahaskhda")
-        let item4 = Post(id: 6, image: UIImage(named: "keys")!, title: "Wallet 2", location: "Gjilan",date: "23/10/2023", postDescription: "sdsdfsdfsddd")
+        let item1 = Post(id: 7, image: UIImage(named: "item_found1")!, title: "Iphone 13 Pro", location: "Rruga B",date: "22/10/2023",postOwner: "Posted by: Filan Fisteku", postDescription: " An iPhone 11 Pro, a sleek and powerful smartphone. The phone is  midnight green with 64GB storage]. It holds essential personal information and valuable memories. A generous reward awaits its safe return.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item2 = Post(id: 8, image: UIImage(named: "item_found2")!, title: "Wallet", location: "Ulpiane",date: "23/10/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "The lost wallet was a weathered companion, its leather worn and faded, revealing traces of past adventures. Inside, it held a collection of essential cards, faded photographs, and fragments of memories yearning to be found once more.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item3 = Post(id: 9, image: UIImage(named: "item_found3")!, title: "Car Keys", location: "Rruga C",date: "22/10/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "A set of car keys belonging to a Honda Civic. They are of great significance for daily mobility. A reward is available for their safe return.", contactInfo: "filan_fisteku2023@gmail.com")
+        let item4 = Post(id: 10, image: UIImage(named: "item_found4")!, title: "Glasses", location: "Lakrishte",date: "23/10/2023",postOwner: "Posted by: Filan Fisteku", postDescription: "A pair of glasses, essential for clear vision. The glasses are black rectangular frames with clear lenses. They are prescription glasses and hold great importance for daily activities. A reward is offered for their safe return.", contactInfo: "filan_fisteku2023@gmail.com")
         foundItems = [item1, item2, item3, item4]
         
         postsCollectionView.reloadData()
@@ -107,14 +138,20 @@ class HomeViewController: UIViewController{
         })
     }
     func setDetails() {
-        if selectedSegmentIndex == 0 {
-            // Show lost items
-            setLost()
-        } else {
-            // Show found items
-            setFound()
-        }
-        postsCollectionView.reloadData()
+        //if !firstSegmentChange {
+//            if selectedSegmentIndex == 0 {
+//                // Show lost items
+//                setLost()
+//            } else {
+//                // Show found items
+//                setFound()
+//                firstSegmentChange = true
+//            }
+       // }
+        
+        setLost()
+        setFound()
+
     }
     //MARK: IBActions
     @IBAction func showMenu(_ sender: UISwipeGestureRecognizer) {
@@ -133,9 +170,13 @@ class HomeViewController: UIViewController{
         }
     }
     @IBAction func segmentControlValueChanged(_ sender: UISegmentedControl) {
+        self.postsCollectionView.reloadData()
         selectedSegmentIndex = sender.selectedSegmentIndex
-        setDetails()
+    
+        //setDetails()
     }
+
+
 }
 //MARK: TableView -> SideBarCell
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -164,9 +205,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if selectedSegmentIndex == 0 {
+            print("lost on reload:\(lostItems.count)")
             return lostItems.count
+            
         }
         else {
+            print("found on reload: \(foundItems.count)")
             return foundItems.count
         }
     }
@@ -175,12 +219,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         var post: Post
         if selectedSegmentIndex == 0{
             post = lostItems[indexPath.item]
+            cell.foundItemButton.isUserInteractionEnabled = true
+            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            cell.foundItemButton.tintColor = .tintColor
         }else{
             post = foundItems[indexPath.item]
-        //    cell.foundItemButton.isUserInteractionEnabled = false
-//            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-//            cell.foundItemButton.tintColor = UIColor(named: "AccentColor")
+            cell.foundItemButton.isUserInteractionEnabled = false
+            cell.foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+            cell.foundItemButton.tintColor = UIColor(named: "AccentColor")
         }
+        cell.indexPath = indexPath
         cell.delegate = self
        
         cell.setup(post)
@@ -200,40 +248,30 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 selectedItem = foundItems[indexPath.item]
             }
             
+
             let storyboard = storyboard?.instantiateViewController(withIdentifier: "PostDetailsViewController") as? PostDetailsViewController
             storyboard?.item = selectedItem
             //  storyboard?.modalPresentationStyle = .fullScreen
             storyboard?.modalTransitionStyle = .flipHorizontal
             self.present(storyboard!, animated: true, completion: nil)
-        }
-    }
-}
-extension HomeViewController: PostViewControllerDelegate {
-    func didCreatePost(_ post: Post, category: String) {
-        if category == "Lost" {
-            lostItems.append(post)
-        } else if category == "Found" {
-            foundItems.append(post)
-        }
-        postsCollectionView.reloadData()
-    }
-}
 
-extension HomeViewController: PostCellDelegate {
-    func collectionViewIndexPath(for cell: UICollectionViewCell) -> IndexPath? {
-        if let indexPath = postsCollectionView.indexPath(for: cell) {
-            return indexPath
         }
-        return nil
     }
-    func addLostItemToFound(at indexPath: IndexPath) {
-        if selectedSegmentIndex == 0 && indexPath.item < lostItems.count {
-            print("item is added to found")
-            let post = lostItems[indexPath.item]
-            lostItems.remove(at: indexPath.item)
-            foundItems.append(post)
+}
+extension HomeViewController: PostCellDelegate {
+    func moveItemFromLostToFound(post: Post, indexPath:IndexPath) {
+        if let index = lostItems.firstIndex(where: { $0.id == post.id }) {
+            // Remove  item from the lostItems array
+            let removedItem = lostItems.remove(at: index)
+            print("removed  = \(lostItems.count)")
+            // Append the item to the foundItems array
+
+            foundItems.append(removedItem)
+            
+            print("found  = \(foundItems.count)")
+            postsCollectionView.reloadData()
         }
-        postsCollectionView.reloadData()
+        
     }
     
     func bookmarkPost(post: Post) {

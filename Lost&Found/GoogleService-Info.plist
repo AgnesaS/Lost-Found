@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1012794402867-e39rf0h4p2qqcajl0nu759eakjmtd4hk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1012794402867-e39rf0h4p2qqcajl0nu759eakjmtd4hk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCBCFseLN4fZNaWf8c33G5GBVURioXq0KY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1012794402867</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.agnesaselimi.Lost-Found</string>
+	<key>PROJECT_ID</key>
+	<string>lostfound-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lostfound-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1012794402867:ios:d69e26e5527d90cff4db46</string>
+</dict>
+</plist>

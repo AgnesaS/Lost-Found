@@ -9,25 +9,24 @@ import UIKit
 import UserNotifications
 
 protocol PostCellDelegate: AnyObject {
-    
-    
     func bookmarkPost(post: Post)
-    func addLostItemToFound(at indexPath: IndexPath)
-    func collectionViewIndexPath(for cell: UICollectionViewCell) -> IndexPath?
+    func  moveItemFromLostToFound(post: Post, indexPath: IndexPath)
 }
 class PostCell: UICollectionViewCell {
     //MARK: IBOutlets
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var postOwner: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var foundItemButton: UIButton!
     //MARK: - Proporties
     weak var delegate: PostCellDelegate?
     private var post: Post?
+    var indexPath: IndexPath?
     private var isBookmarked = false
+    private var isFoundItem = false
+    
     
     override func awakeFromNib() {
         setupNotifications()
@@ -51,15 +50,13 @@ class PostCell: UICollectionViewCell {
         postImageView.image = post.image
         postTitleLabel.text = post.title
         locationLabel.text = post.location
+        postOwner.text = post.postOwner
       
         bookmarkButton.setImage(UIImage(systemName: post.bookMarked ?? false ? "bookmark.fill" : "bookmark"), for: .normal)
-        if let isItemFound = post.isItemFound {
-                foundItemButton.setImage(UIImage(systemName: isItemFound ? "checkmark.circle.fill" : "checkmark.circle"), for: .normal)
-                foundItemButton.tintColor = isItemFound ? UIColor(named: "AccentColor") : .tintColor
-            }
         
-        foundItemButton.addTarget(self, action: #selector(foundItemButtonPressed(_:)), for: .touchUpInside)
-        //toggleCheckmarkState()
+
+        
+       
     }
     private func toggleBookmarkState() {
         isBookmarked.toggle()
@@ -71,24 +68,20 @@ class PostCell: UICollectionViewCell {
             bookmarkButton.tintColor = .label
         }
     }
-    private func toggleCheckmarkState() {
-        guard let post = post else { return }
-        if post.isItemFound! {
-            foundItemButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-            foundItemButton.tintColor = UIColor(named: "AccentColor")
-        } else {
-            foundItemButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-            foundItemButton.tintColor = .tintColor
-        }
-    }
+
     private func displayItemFoundNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Item Found"
         content.body = "Your item has been found"
         content.badge = 1
         content.sound = .default
+
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        
         let request = UNNotificationRequest(identifier: "ItemFoundNotification", content: content, trigger: trigger)
+        
+
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Error sending notification: \(error)")
@@ -96,6 +89,7 @@ class PostCell: UICollectionViewCell {
                 print("Notification sent successfully")
             }
         }
+
     }
     //MARK: IBActions
     @IBAction func bookmarkPost(_ sender: Any) {
@@ -106,12 +100,10 @@ class PostCell: UICollectionViewCell {
         toggleBookmarkState()
     }
     @IBAction func foundItemButtonPressed(_ sender: Any) {
-        guard var post = post else { return }
-       // toggleCheckmarkState()
-        if let indexPath = delegate?.collectionViewIndexPath(for: self) {
-            delegate?.addLostItemToFound(at: indexPath)
+        if let post = post{
+            delegate?.moveItemFromLostToFound(post: post, indexPath: self.indexPath!)
         }
-        if !post.isItemFound!{
+        if !(post?.isItemFound! ?? true){
             displayItemFoundNotification()
         }
     }
