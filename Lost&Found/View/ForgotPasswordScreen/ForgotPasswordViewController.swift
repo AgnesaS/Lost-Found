@@ -51,4 +51,10 @@ class ForgotPasswordViewController: UIViewController {
             }
         }
     }
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        controller.modalPresentationStyle = .fullScreen
+        controller.modalTransitionStyle = .flipHorizontal
+        present(controller, animated: true, completion: nil)
+    }
 }

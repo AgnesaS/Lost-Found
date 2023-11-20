@@ -23,11 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
              print(db)
              
              let isFirstLaunch = !UserDefaults.standard.bool(forKey: "HasLaunchedBefore")
-             if isFirstLaunch {
+             if  isFirstLaunch {
                  UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
-                 navigateToIntroScreen()
-             } 
-             
+                 navigateToLoginScreen()
+             } else {
+                 if Auth.auth().currentUser != nil {
+                     navigateToHomeScreen()
+                 }else{
+                     navigateToLoginScreen()
+                 }
+             }
              return true
          }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -102,17 +107,17 @@ extension AppDelegate {
         window?.rootViewController = introViewController
     }
     
-//    func navigateToHomeScreen() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBaarViewController")
-//        window?.rootViewController = homeViewController
-//    }
-//
-//    func navigateToLoginScreen() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-//        window?.rootViewController = loginViewController
-//    }
+    func navigateToHomeScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBaarViewController")
+        window?.rootViewController = homeViewController
+    }
+
+    func navigateToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        window?.rootViewController = loginViewController
+    }
     
 }
 

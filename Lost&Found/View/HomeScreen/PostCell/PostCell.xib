@@ -31,7 +31,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W1G-hn-ay8">
-                        <rect key="frame" x="10" y="125" width="37.333333333333336" height="76"/>
+                        <rect key="frame" x="10" y="125.00000000000001" width="37.333333333333336" height="56.666666666666671"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UF-mp-jJT">
                                 <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="18"/>
@@ -45,14 +45,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpP-q5-Li4">
-                                <rect key="frame" x="3.3333333333333357" y="42.333333333333343" width="31" height="14.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POE-8h-bKH">
-                                <rect key="frame" x="3.3333333333333357" y="61.666666666666664" width="31" height="14.333333333333336"/>
+                                <rect key="frame" x="3.3333333333333357" y="42.333333333333343" width="31" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -124,11 +118,10 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bookmarkButton" destination="Moy-Tn-gEV" id="vCs-iG-tVi"/>
-                <outlet property="dateLabel" destination="POE-8h-bKH" id="3xr-Fe-48v"/>
-                <outlet property="descriptionLabel" destination="cpP-q5-Li4" id="l3p-cO-LVf"/>
                 <outlet property="foundItemButton" destination="Fax-qf-B2l" id="WTW-ao-bO2"/>
                 <outlet property="locationLabel" destination="gzq-Px-pKg" id="WTF-td-450"/>
                 <outlet property="postImageView" destination="UGw-8w-ZIt" id="JvR-bF-xQx"/>
+                <outlet property="postOwner" destination="POE-8h-bKH" id="XhX-S9-Nhx"/>
                 <outlet property="postTitleLabel" destination="8UF-mp-jJT" id="wTO-sG-opb"/>
             </connections>
             <point key="canvasLocation" x="25.954198473282442" y="23.591549295774648"/>

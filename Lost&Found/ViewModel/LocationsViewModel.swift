@@ -9,7 +9,6 @@ import MapKit
 import SwiftUI
 
 class LocationsViewModel: ObservableObject{
-    //   @EnvironmentObject var vm: LocationsViewModel
     @Published var locations: [Location]
     
     @Published var mapLocation: Location {

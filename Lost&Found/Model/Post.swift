@@ -13,9 +13,10 @@ struct Post{
     let image: UIImage
     let title: String
     let location: String
-  //  let descriptionPost: String
     let date: String
+    let postOwner: String
     let postDescription: String
+    let contactInfo: String
     var isItemFound: Bool? = false
     var bookMarked: Bool? = false
     }

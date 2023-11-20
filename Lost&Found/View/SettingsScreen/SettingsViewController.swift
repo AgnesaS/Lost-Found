@@ -78,7 +78,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     @IBAction func changeFirstLastNameButtonPressed(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(identifier: "ChangeFirstLastNameViewController") as! ChangeFirstLastNameViewController
-        controller.modalPresentationStyle = .fullScreen
+     //   controller.modalPresentationStyle = .fullScreen
         controller.delegate = self
         // controller.modalTransitionStyle = .flipHorizontal
         self.present(controller, animated: true, completion: nil)
@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         // Change the titleLabel text
         forgotPasswordViewController?.customTitle = "Change Password"
         
-        forgotPasswordViewController?.modalPresentationStyle = .fullScreen
+      //  forgotPasswordViewController?.modalPresentationStyle = .fullScreen
         if let forgotPasswordVC = forgotPasswordViewController {
             present(forgotPasswordVC, animated: true, completion: nil)
         }

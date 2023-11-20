@@ -61,6 +61,18 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
+                        <connections>
+                            <action selector="savedButtonPressed:" destination="rLC-uz-YEI" eventType="touchUpInside" id="NFG-Zi-97j"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y49-kE-UbM">
+                        <rect key="frame" x="180" y="165" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Ebf-9U-jqp"/>
+                            <constraint firstAttribute="height" constant="20" id="EnS-oZ-05B"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
                     </button>
                 </subviews>
             </view>
@@ -70,21 +82,26 @@
                 <constraint firstItem="CEd-x0-Ocx" firstAttribute="top" secondItem="rLC-uz-YEI" secondAttribute="top" constant="10" id="1qv-BS-c18"/>
                 <constraint firstItem="CEd-x0-Ocx" firstAttribute="centerX" secondItem="rLC-uz-YEI" secondAttribute="centerX" id="5Ng-Ih-qdV"/>
                 <constraint firstItem="Jgg-ay-i37" firstAttribute="top" secondItem="CEd-x0-Ocx" secondAttribute="bottom" constant="20" id="Uzr-6D-25N"/>
+                <constraint firstAttribute="trailing" secondItem="Y49-kE-UbM" secondAttribute="trailing" constant="10" id="haZ-Td-csy"/>
+                <constraint firstItem="Y49-kE-UbM" firstAttribute="top" secondItem="Jgg-ay-i37" secondAttribute="bottom" constant="15" id="jKR-Q3-Mxd"/>
                 <constraint firstItem="eH3-5I-A4a" firstAttribute="top" secondItem="CEd-x0-Ocx" secondAttribute="bottom" constant="15" id="osI-Ud-VCT"/>
                 <constraint firstAttribute="trailing" secondItem="Jgg-ay-i37" secondAttribute="trailing" constant="10" id="sYg-lJ-42s"/>
             </constraints>
             <size key="customSize" width="210" height="209"/>
             <connections>
+                <outlet property="foundButton" destination="Y49-kE-UbM" id="bce-D3-ANB"/>
                 <outlet property="locationPostLabel" destination="zK9-MT-BC2" id="jiD-Dt-rCR"/>
                 <outlet property="postDateLabel" destination="6PD-Gg-bsY" id="1aS-ng-RQX"/>
                 <outlet property="postDescriptionLabel" destination="ziP-6I-zWl" id="542-lJ-Juh"/>
                 <outlet property="postImageView" destination="CEd-x0-Ocx" id="1ql-tw-zDr"/>
                 <outlet property="postTitleLabel" destination="xmR-kd-wWl" id="tY0-0H-0i1"/>
+                <outlet property="savedButton" destination="Jgg-ay-i37" id="cnP-O5-63r"/>
             </connections>
             <point key="canvasLocation" x="25.954198473282442" y="23.591549295774648"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>

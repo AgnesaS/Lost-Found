@@ -27,50 +27,51 @@ class IntroViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "HasLaunchedBefore")
-        
-        if hasLaunchedBefore {
-            navigateToNextScreen()
-        } else {
-
-        }
-        
+      //  UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
+//        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "HasLaunchedBefore")
+//
+//        if hasLaunchedBefore {
+//            navigateToNextScreen()
+//        } else {
+//
+//        }
+//
         slidesCollectionView.dataSource = self
         slidesCollectionView.delegate = self
         slidesCollectionView.register(UINib(nibName: "SlideCell", bundle: nil), forCellWithReuseIdentifier: "SlideCell")
-        
+
         slides = [IntroModel(title: "Lost, Found and Reunited", description: "Where lost items find their way back home.", image: UIImage(named: "1")!),
                   IntroModel(title: "Just a click.", description: "Capture and share your findings within our app", image: UIImage(named: "2")!),
                   IntroModel(title: "The power of connection", description: "Join and recover what's missing.", image: UIImage(named: "3")!)]
         pageControll.numberOfPages = slides.count
         
     }
-    func navigateToNextScreen() {
-        if Auth.auth().currentUser != nil {
-            navigateToHomeScreen()
-        } else {
-            navigateToLoginScreen()
-        }
-    }
+//    func navigateToNextScreen() {
+//        if Auth.auth().currentUser != nil {
+//            navigateToHomeScreen()
+//        } else {
+//            navigateToLoginScreen()
+//        }
+//    }
     
-    func navigateToHomeScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBaarViewController")
-        UIApplication.shared.windows.first?.rootViewController = homeViewController
-    }
-    
-    func navigateToLoginScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        UIApplication.shared.windows.first?.rootViewController = loginViewController
-    }
+//    func navigateToHomeScreen() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBaarViewController")
+//        UIApplication.shared.windows.first?.rootViewController = homeViewController
+//    }
+//    
+//    func navigateToLoginScreen() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+//        UIApplication.shared.windows.first?.rootViewController = loginViewController
+//    }
     //MARK: IBActions
     @IBAction func nextButtonPressed(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let controller = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .fullScreen
             controller.modalTransitionStyle = .flipHorizontal
-//            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore") // Update the flag indicating the app has been launched
+            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
             present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1

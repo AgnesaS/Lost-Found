@@ -7,23 +7,26 @@
 
 import UIKit
 import CoreLocation
+import Photos
 
-protocol PostViewControllerDelegate: AnyObject {
-    func didCreatePost(_ post: Post, category: String)
-}
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: IBOutlets
+    
+    @IBOutlet weak var postOwnerTextField: UITextField!
     @IBOutlet weak var categoryTypeTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var conactTextField: UITextField!
     
-    weak var delegate: PostViewControllerDelegate?
+    var imagePicker: UIImagePickerController?
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImagePicker()
         categoryPicker()
         dateAndTimePicker()
     }
@@ -83,6 +86,11 @@ class PostViewController: UIViewController {
         self.present(homeViewController, animated: true, completion: nil)
     }
     func validateFields() -> Bool{
+        guard let postOwner = postOwnerTextField.text, !postOwner.isEmpty else{
+            self.postOwnerTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please write your first name and last name".localizableString())
+            return false
+        }
         guard let categoryType = categoryTypeTextField.text, !categoryType.isEmpty else{
             self.categoryTypeTextField.becomeFirstResponder()
             self.showAlertWith(title: "Lost & Found", message: "Please select your category".localizableString())
@@ -108,9 +116,38 @@ class PostViewController: UIViewController {
             self.showAlertWith(title: "Lost & Found", message: "Please enter date and time".localizableString())
             return false
         }
+        guard let contactInfo = conactTextField.text, !contactInfo.isEmpty else{
+            self.conactTextField.becomeFirstResponder()
+            self.showAlertWith(title: "Lost & Found", message: "Please enter contact information".localizableString())
+            return false
+        }
         return true
     }
+    func setupImagePicker(){
+        imagePicker = UIImagePickerController()
+        imagePicker?.sourceType = .photoLibrary
+        imagePicker?.delegate = self
+        PHPhotoLibrary.requestAuthorization { status in
+            print("request autherization status: \(status)")
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        postImageView.image = selectedImage
+        imagePicker?.dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker?.dismiss(animated: true)
+    }
     //MARK: IBActions
+    @IBAction func addPostImageButtonTapped(_ sender: Any) {
+        if PHPhotoLibrary.authorizationStatus() == .authorized{
+            if let imagePic = imagePicker{
+                present(imagePic, animated: true)
+            }
+        }
+    }
+    
     @IBAction func postButtonTapped(_ sender: Any) {
         print("button clicked")
         if validateFields(){
@@ -121,21 +158,41 @@ class PostViewController: UIViewController {
             let description = descriptionTextField.text ?? ""
             let location = locationTextField.text ?? ""
             let date = dateTextField.text ?? ""
+            let postImage = postImageView.image
+            let postOwner = "Posted by: \(postOwnerTextField.text ?? "")"
+            let contactInfo = conactTextField.text ?? ""
             
-            let post = Post(id: 1, image: UIImage(named: "keys")!, title: "Lost", location: "Prishtina", date: "22.03.2023", postDescription: "This item was lost in Prishtina")
+            let post = Post(id: 1, image: postImage!, title: title, location: location, date: date,postOwner: postOwner, postDescription: description, contactInfo: contactInfo)
             
-            delegate?.didCreatePost(post, category: category)
+//            delegate?.didCreatePost(post, category: category)
+            var postObj: [String: Any] = ["post": post, "category": category]
+            NotificationCenter.default.post(name: Notification.Name("refreshHome"), object: nil, userInfo: postObj)
+
             
             let alertController = UIAlertController(title: "Alert", message: "Your post has been created", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.navigateToHome()
-            }
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
+                        // Clear the text fields
+                        self?.categoryTypeTextField.text = nil
+                        self?.titleTextField.text = nil
+                        self?.descriptionTextField.text = nil
+                        self?.locationTextField.text = nil
+                        self?.dateTextField.text = nil
+                        self?.postOwnerTextField.text = nil
+                        self?.conactTextField.text = nil
+                        
+                        // Clear the image view
+                        self?.postImageView.image = nil
+                        
+                        // Clear the post object (if needed)
+                     postObj.removeValue(forKey: "post")
+                    }
+                    alertController.addAction(okAction)
+                    present(alertController, animated: true, completion: nil)
+                }
         }
         
     }
-}
+
 extension PostViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if row == 0 {

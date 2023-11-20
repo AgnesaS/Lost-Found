@@ -31,7 +31,7 @@ class TabBaarViewController: SOTabBarController {
         homeStoryboard.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home2"), selectedImage: UIImage(named: "home_Selected"))
         locationStoryboard.tabBarItem = UITabBarItem(title: "Location", image: UIImage(named: "location2"), selectedImage: UIImage(named: "location_Selected"))
         addStoryboard.tabBarItem = UITabBarItem(title: "Add", image: UIImage(named: "plus2"), selectedImage: UIImage(named: "plus_Selected"))
-        historyStoryboard.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "history2"), selectedImage: UIImage(named: "history_Selected"))
+        historyStoryboard.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(named: "history2"), selectedImage: UIImage(named: "history_Selected"))
         meStoryboard.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "man2"), selectedImage: UIImage(named: "menu_Selected"))
         
         viewControllers = [homeStoryboard,locationStoryboard ,addStoryboard,historyStoryboard,meStoryboard]

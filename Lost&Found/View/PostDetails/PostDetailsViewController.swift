@@ -9,10 +9,12 @@ import UIKit
 
 class PostDetailsViewController: UIViewController {
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postOwnerLabel: UILabel!
     @IBOutlet weak var dateAndTimeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contactLabel: UILabel!
     
     var item: Post?
     override func viewDidLoad() {
@@ -20,9 +22,11 @@ class PostDetailsViewController: UIViewController {
         super.viewDidLoad()
         postImageView.image = item?.image
         titleLabel.text = item?.title
-        descriptionLabel.text = item?.postDescription
-        locationLabel.text = item?.location
-        dateAndTimeLabel.text = item?.date
+        postOwnerLabel.text = item?.postOwner ?? ""
+        descriptionLabel.text = "Description:\(String(describing: item?.postDescription ?? ""))"
+        locationLabel.text = "Location:\(String(describing: item?.location ?? ""))"
+        dateAndTimeLabel.text = "Date:\(String(describing: item?.date ?? ""))"
+        contactLabel.text = "Contact : \(String(describing: item?.contactInfo ?? ""))"
     //    dateAndTimeLabel.text = item?.imageNames
     }
     
